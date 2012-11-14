@@ -3,13 +3,17 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Jody Tate -- Interface Designer and Developer -- jtate@uw.edu
 
 # THANKS
 
-    <name>
+    Many to come. 
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery, Modernizr
+    HTML5,
+    CSS3,
+    jQuery, 
+    Modernizr,
+    Grunt,
+    Sass
