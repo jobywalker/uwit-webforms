@@ -1,3 +1,6 @@
+/* global $ */
+
+// https://github.com/h5bp/html5-boilerplate/blob/master/js/plugins.js
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
@@ -21,4 +24,7 @@
     }
 }());
 
-// Place any jQuery/helper plugins in here.
+(function() { 
+    'use strict';
+
+}());
