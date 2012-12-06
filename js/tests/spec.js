@@ -3,10 +3,10 @@
 
 // https://github.com/pivotal/jasmine/wiki/Spies
 // this works to test webForms.ajax
-describe('https://github.com/pivotal/jasmine/wiki/Spies', function() { 
-    it('should test async call', function () {
+describe('webForms.ajax()', function() { 
+    it('should test an async call', function () {
         spyOn(webForms, 'ajax');
-        var callback = webForms.testFunction('JASMINE!!!!'),
+        var callback = webForms.testMe('JASMINE!!!!'),
             callback = jasmine.createSpy();
         
         webForms.ajax(callback)
