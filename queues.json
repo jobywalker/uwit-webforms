@@ -1,4 +1,8 @@
 {
-    "Tools" : "",
-    "SSG Test" : "SSG::Test"
+    "ssgTest" : { "queue" : "SSG::Test",
+        "name" : "SSG Test Queue"
+    },
+    "tools" : { "queue" : "AIE::Tools",
+        "name" : "Tools Queue"
+    }
 }
