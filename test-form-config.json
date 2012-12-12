@@ -5,14 +5,16 @@
             "name": "Subject",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "",
+            "value" : "SSG::Test Ticket",
             "required": true
         },
         "message": {
             "name": "Message",
             "inputType": "textarea",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": null,
+            "value" : null,
             "required": true
         }
     }
