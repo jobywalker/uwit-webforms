@@ -150,9 +150,15 @@ webForms.start = function (config) {
 };
 
 webForms.displayForm = function () {
+    var form = getURLParameter('form'),
+        url;
+    if (form === 'test') {
+        url = 'test-form-config.json';
+    }
+
     console.log('running displayForm');
     $.ajax({
-        url: 'test-form-config.json',
+        url: url,
         dataType: 'json',
         contentType: 'application/json',
         success: function (data, textStatus, jqXHR) {
