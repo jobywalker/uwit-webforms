@@ -1,8 +1,10 @@
 {
-    "ssgTest" : { "queue" : "SSG::Test",
-        "name" : "SSG Test Queue"
+    "ssgTest": {
+        "queue": "SSG::Test",
+        "name": "SSG Test Queue"
     },
-    "tools" : { "queue" : "AIE::Tools",
-        "name" : "Tools Queue"
+    "tools": {
+        "queue": "AIE::Tools",
+        "name": "Tools Queue"
     }
 }
