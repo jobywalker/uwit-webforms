@@ -22,6 +22,21 @@
     }
 }());
 
+// http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values/901144#901144
+// https://gist.github.com/4266063
+window.getURLParameter = function (name) {
+    'use strict';
+    name = name.replace(/[\[]/, "\\\\[").replace(/[\]]/, "\\\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)",
+        regex = new RegExp(regexS),
+        results = regex.exec(window.location.search);
+    if (results === null) {
+        return "";
+    } else {
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+};
+
 // success: data, textStatus, jqXHR
 // error: jqXHR, textStatus, errorThrown
 window.ajaxConsoleLog = function (functionName, textStatus, jqXHR) {
