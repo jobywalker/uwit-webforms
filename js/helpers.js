@@ -1,5 +1,3 @@
-/* global $ */
-
 // https://github.com/h5bp/html5-boilerplate/blob/master/js/plugins.js
 // Avoid `console` errors in browsers that lack a console.
 (function() {
@@ -26,7 +24,7 @@
 
 // success: data, textStatus, jqXHR
 // error: jqXHR, textStatus, errorThrown
-window.ajaxConsoleLog = function (textStatus, jqXHR) {
+window.ajaxConsoleLog = function (functionName, textStatus, jqXHR) {
     'use strict';
     var face;
     if (textStatus === 'success') {
@@ -36,7 +34,7 @@ window.ajaxConsoleLog = function (textStatus, jqXHR) {
     }
     console.log(face + ' ' +  
         textStatus.toUpperCase()  + 
-        ' -- jqXHR.statusText = ' +  jqXHR.statusText + 
+        ' -- for ' + functionName + ' : jqXHR.statusText = ' + jqXHR.statusText + 
         ', textStatus = ' + textStatus);
 };
 
