@@ -1,0 +1,19 @@
+{
+    "formName": "SSG::Test Ticket Form",
+    "fields": {
+        "subject": {
+            "name": "Subject",
+            "inputType": "text",
+            "helpText": "text",
+            "placeholder": "text",
+            "required": true
+        },
+        "message": {
+            "name": "Message",
+            "inputType": "textarea",
+            "helpText": "text",
+            "placeholder": "text",
+            "required": true
+        }
+    }
+}
