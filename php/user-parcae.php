@@ -32,8 +32,8 @@
           // echo $restclient->getWebResponse();
             $theData = $restclient->getWebResponse();
             $theData = simplexml_load_string($theData);
+            header('Content-type: application/json');
             echo json_encode($theData);
-
         }
 
     if (!is_null($xml) && $restclient->getStatusCode() == 200 && is_null($post_data))

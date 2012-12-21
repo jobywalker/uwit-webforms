@@ -120,7 +120,7 @@ webForms.createTicket = function(subject, message) {
 
 // http://stackoverflow.com/questions/905298/jquery-storing-ajax-response-into-global-variable
 webForms.getUser = function () { 
-    var url = 'user.php',
+    var url = 'php/user-parcae.php',
         testUrl = 'user.json',
         result = null;
     $.ajax({
@@ -128,10 +128,11 @@ webForms.getUser = function () {
         async: false,
         success: function(data) {
             result = data;
-            //$('#uw-netid').text(result.user);
+            console.log('getUser = ' + result.User.UWNetID);
+            //$('#whoami').text('UWNetID : ' + result.User[0].UWNetID);
         }
     });
-    return result.user;
+    //return result.user;
 };
 
 webForms.user = webForms.getUser();
