@@ -1,6 +1,6 @@
 <?php
+
     require_once("SimpleRestClient.php");
-    require_once("xml2json.php");
 
     $user = $_SERVER[PHP_AUTH_USER];
     $xml=null;
@@ -12,7 +12,7 @@
     $curl_opts=null;//Array to set additional CURL options or override the default options of the SimpleRestClient
     $post_data=null;//Array or string to set POST data 
     $user_agent = "PHP Sample Rest Client";
-    $url = "https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/" . user . "/";
+    $url = "https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/" . $user . "/";
 
 
     $restclient = new SimpleRestClient($cert_file, $key_file, $key_password, $user_agent, $curl_opts);
