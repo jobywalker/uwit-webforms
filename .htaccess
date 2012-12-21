@@ -541,3 +541,6 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 <IfModule mod_php5.c>
   php_value session.cookie_httponly true
 </IfModule>
+
+RewriteRule ^form/([a-zA-Z0-9]+)/$ form.html?form=$1
+
