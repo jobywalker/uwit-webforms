@@ -57,26 +57,26 @@ webForms.getNewTicketNumber = function (data) {
 //};
 
 
-webForms.parcaeUser = function (user) {
-    user = webForms.getUser();
-    // https://shades.cac.washington.edu/parcae/api/user/director/uwnetid/joby/
-    https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/joby/
-    'use strict';
-    var url = 'https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/jtate/';
-    $.ajax({
-        url: url,
-        success: function (data, textStatus, jqXHR) {
-            ajaxConsoleLog('parcaeUser', textStatus, jqXHR);
-            console.log(data);
-            //$.each(data, function (key, value) {
-            //    console.log('key = ' + key + ', value = ' + value)
-            //});
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            ajaxConsoleLog('parcaeUser', textStatus, jqXHR);
-        }    
-    });
-};
+//webForms.parcaeUser = function (user) {
+//    user = webForms.getUser();
+//    // https://shades.cac.washington.edu/parcae/api/user/director/uwnetid/joby/
+//    https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/joby/
+//    'use strict';
+//    var url = 'https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/jtate/';
+//    $.ajax({
+//        url: url,
+//        success: function (data, textStatus, jqXHR) {
+//            ajaxConsoleLog('parcaeUser', textStatus, jqXHR);
+//            console.log(data);
+//            //$.each(data, function (key, value) {
+//            //    console.log('key = ' + key + ', value = ' + value)
+//            //});
+//        },
+//        error: function (jqXHR, textStatus, errorThrown) {
+//            ajaxConsoleLog('parcaeUser', textStatus, jqXHR);
+//        }    
+//    });
+//};
 
 // https://rtdev.cac.washington.edu/webforms/js/rt-test.js
 webForms.createTicket = function(subject, message) {
@@ -128,23 +128,30 @@ webForms.getUser = function () {
         async: false,
         success: function(data) {
             result = data;
-            console.log('getUser = ' + result.User.UWNetID);
-            //$('#whoami').text('UWNetID : ' + result.User[0].UWNetID);
+            var user = result.User;
+            $('#uw-netid').text(user.UWNetID);
+            $('#whoami .name').append(user.Name);
+            $('#whoami .title').append(user.Title);
+            $('#whoami .mailstop').append(user.Mailstop);
+            $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
+            $('#whoami .email').append(user.PhoneNumbers.Email);
         }
     });
-    //return result.user;
+    return result.User;
 };
 
-webForms.user = webForms.getUser();
+//webForms.user = webForms.getUser();
 
 webForms.start = function (config) {
     'use strict';
+    webForms.getUser();
     webForms.displayForm();
-    var uwNetID = webForms.getUser(),
-        queue = webForms.getQueue('ssgTest'),
+    // var uwNetID = webForms.getUser()
+    var queueParam = getURLParameter('form');
+    var queue = webForms.getQueue(queueParam),
         subject = $('#subject').val(),
         message = $('#message').val();
-    $('#uw-netid').text(uwNetID);
+    //$('#uw-netid').text(uwNetID);
     $('button').click(function() {
         webForms.createTicket(subject, message, queue);
     });
@@ -155,6 +162,9 @@ webForms.displayForm = function () {
         url;
     if (form === 'test') {
         url = 'test-form-config.json';
+    } 
+    if (form === 'tsm') {
+        url = 'config/tsm.json';
     }
 
     console.log('running displayForm');
@@ -164,6 +174,7 @@ webForms.displayForm = function () {
         contentType: 'application/json',
         success: function (data, textStatus, jqXHR) {
             ajaxConsoleLog('displayForm', textStatus, jqXHR);
+            console.log('data for displayForm = ' + data);
             webForms.buildForm(data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
