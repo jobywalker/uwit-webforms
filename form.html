@@ -20,7 +20,7 @@
     <body>
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -41,12 +41,14 @@
           </div><!--/.nav-collapse -->
         </div>
       </div>
-    </div>
+    </nav>
         
     <div class="container">
 
+    <header>
         <h1></h1>
-
+        <p class="lead">More of a description here. <span><i class="icon-info-sign"></i></span></p>
+    </header>
 
 
     <div class="row">
@@ -54,12 +56,12 @@
         <div class="span8">
         
         <div class="well">
-            <p id="form-description"></p>
+            <p id="form-description">Automated description here for more information if necessary.</p>
         </div>
 
                 <div class="alert alert-error" id="who-are-you-error">
                     <h4>There's a Problem</h4>
-                    <p>We can't determine your UW NetID. You need a UW NetID before completing this form.</p> 
+                    <p>We can't determine your UW NetID. You'll need one before completing this form.</p> 
                 </div>
 
                 <div class="alert alert-success" id="ticket-creation-success">
@@ -109,7 +111,7 @@
     <div class="span4">
   
         <div class="well">
-            <h2>Help Text</h2>
+            <h2>Optional Help Text</h2>
 
                 <ul>
                     <li> Helpful thing</li>
@@ -127,6 +129,8 @@
     <!-- end .container-fluid -->
 
         <script src="js/vendor/jquery-1.8.3.min.js"></script>
+        <script src="js/vendor/jquery.pulse.min.js"></script>
+
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/helpers.js"></script>
         <script src="js/webforms.js"></script>
