@@ -1,5 +1,13 @@
 {
-"user" : "jtate",
-"userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11",
-"referer" : null
+    "User": {
+        "UWNetID": "jtate",
+        "Name": "Jody Tate",
+        "Title": "Interface Designer and Developer, Network Management Tools, UW-IT",
+        "Mailstop": "42",
+        "Email": "jtate@uw.edu",
+        "PhoneNumbers": {
+            "PhoneNumber": "555 5555"
+        },
+        "UWRegID": "42"
+    }
 }
