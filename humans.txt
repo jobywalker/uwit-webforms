@@ -18,3 +18,8 @@
     Bootstrap,
     Grunt,
     Sass
+
+# PLUGINS
+
+    jQuery Pulse Animation Plugin
+
