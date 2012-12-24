@@ -106,18 +106,6 @@ webForms.getUser = function () {
         async: false,
         success: function(data) {
             result = data;
-            //var user = result.User;
-            //if (user === undefined) {
-            //    $('#whoami, form').hide();
-            //    $('#who-are-you-error').fadeIn();
-            //} else {
-            //    $('#uw-netid').text(user.UWNetID);
-            //    $('#whoami .name').append(user.Name);
-            //    $('#whoami .title').append(user.Title);
-            //    $('#whoami .mailstop').append(user.Mailstop);
-            //    $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
-            //    $('#whoami .email').append(user.PhoneNumbers.Email);
-            //}
         },
         error: function() {
             $('#uw-netid').text('?');
