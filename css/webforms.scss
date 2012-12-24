@@ -13,31 +13,43 @@ body {
   }
 }
 
-.navbar-inverse .brand, 
-.navbar-inverse .nav > li > a,
 .navbar-inverse {
-    color: #CCCCCC;
+    .brand, 
+    .nav > li > a {
+        color: #CCCCCC;
+    }
+    .navbar-inner {
+        background: $uw-purple;
+        border-color: #CCCCCC;
+    }
+    .nav .active > a {
+        background: $uw-purple;
+    }
 }
 
-.navbar-inverse .navbar-inner {
-    background: $uw-purple;
-    border-color: #CCCCCC;
+.navbar .nav > .active {
+    > a,
+    &:hover,
+    &:focus {
+        color: #EEEEEE;
+        background: lighten($uw-purple, 5%); 
+        text-decoration: none;
+        -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, .75);
+        -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, .75);
+        box-shadow: inset 0 3px 8px rgba(0, 0, 0, .75);
+    }
+} 
+
+
+.nav-pills {
+    .active a {
+        background-color: $uw-purple;
+        :hover {
+            background-color: lighten($uw-purple, 20%);
+        };
+    }
 }
 
-.navbar-inverse .nav .active > a {
-    background: $uw-purple;
-}
-
-.navbar .nav > .active > a, 
-.navbar .nav > .active > a:hover, 
-.navbar .nav > .active > a:focus {
-    color: #EEEEEE;
-    background: #30275B;
-    text-decoration: none;
-    -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, .75);
-    -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, .75);
-    box-shadow: inset 0 3px 8px rgba(0, 0, 0, .75);
-}
 
 /* alerts 
 ----------------------------------- */
@@ -45,4 +57,40 @@ body {
 #who-are-you-error,
 #ticket-creation-success {
     display: none;
+}
+
+
+/* index page 
+----------------------------------- */
+
+#index-page {
+    /* Custom container */
+    .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+        > hr {
+            margin: 30px 0;
+        }
+    }
+    /* Main marketing message and sign up button */
+    .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+        h1 {
+            font-size: 5em;
+            line-height: 1;
+            color: $uw-purple;
+        }
+        .btn {
+            font-size: 1.5em;
+            padding: 14px 24px;
+        }
+    }
+      /* Supporting marketing content */
+    .marketing {
+        margin: 60px 0;
+        p + h4 {
+            margin-top: 28px;
+        }
+    }
 }
