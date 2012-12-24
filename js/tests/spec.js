@@ -3,17 +3,17 @@
 
 // https://github.com/pivotal/jasmine/wiki/Spies
 // this works to test webForms.ajax
-describe('webForms.ajax()', function() { 
+describe('webForms.displayForm()', function() { 
     it('should test an async call', function () {
         spyOn(webForms, 'ajax');
         var callback = webForms.testMe('JASMINE!!!!'),
             callback = jasmine.createSpy();
         
-        webForms.ajax(callback)
+        webForms.displayForm(callback)
         expect(callback).not.toHaveBeenCalled();
         
         var someResponseData = 'foo';
-        webForms.ajax.mostRecentCall.args[0](someResponseData);
+        webForms.displayForm.mostRecentCall.args[0](someResponseData);
         expect(callback).toHaveBeenCalledWith(someResponseData);
     
     });
