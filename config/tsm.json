@@ -1,7 +1,8 @@
 {
     "formName": "TSM Backup Server Request",
     "formDescription" : "Using this form you can request a new <a href=\"http://www-142.ibm.com/software/products/us/en/tivostormana/>\">Tivoli Storage Manager</a> (TSM) Backup.",
-    "fields": { 
+    "formHelpText" : "",
+    "formFields": { 
         "ticketType": {
             "name": "Ticket Type",
             "inputType": "text",
