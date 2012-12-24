@@ -56,28 +56,6 @@ webForms.getNewTicketNumber = function (data) {
 //    });
 //};
 
-
-//webForms.parcaeUser = function (user) {
-//    user = webForms.getUser();
-//    // https://shades.cac.washington.edu/parcae/api/user/director/uwnetid/joby/
-//    https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/joby/
-//    'use strict';
-//    var url = 'https://shades.cac.washington.edu/parcae/api/user/director/app/RT/uwnetid/jtate/';
-//    $.ajax({
-//        url: url,
-//        success: function (data, textStatus, jqXHR) {
-//            ajaxConsoleLog('parcaeUser', textStatus, jqXHR);
-//            console.log(data);
-//            //$.each(data, function (key, value) {
-//            //    console.log('key = ' + key + ', value = ' + value)
-//            //});
-//        },
-//        error: function (jqXHR, textStatus, errorThrown) {
-//            ajaxConsoleLog('parcaeUser', textStatus, jqXHR);
-//        }    
-//    });
-//};
-
 // https://rtdev.cac.washington.edu/webforms/js/rt-test.js
 webForms.createTicket = function(subject, message) {
     'use strict';
@@ -129,12 +107,21 @@ webForms.getUser = function () {
         success: function(data) {
             result = data;
             var user = result.User;
-            $('#uw-netid').text(user.UWNetID);
-            $('#whoami .name').append(user.Name);
-            $('#whoami .title').append(user.Title);
-            $('#whoami .mailstop').append(user.Mailstop);
-            $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
-            $('#whoami .email').append(user.PhoneNumbers.Email);
+            if (user === undefined) {
+                $('#whoami, form').hide();
+                $('#who-are-you-error').fadeIn();
+            } else {
+                $('#uw-netid').text(user.UWNetID);
+                $('#whoami .name').append(user.Name);
+                $('#whoami .title').append(user.Title);
+                $('#whoami .mailstop').append(user.Mailstop);
+                $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
+                $('#whoami .email').append(user.PhoneNumbers.Email);
+            }
+        },
+        error: function() {
+            $('#uw-netid').text('?');
+            $('#whoami .name').append('We can\'t determine who you are.');      
         }
     });
     return result.User;
@@ -188,19 +175,15 @@ webForms.buildForm = function (json) {
     $('h1').append(json.formName);
     var input = ''; 
     $.each(json.fields, function(k, v){
-        //console.log('k = ' + k + ', v = ' + v);
+        console.log('k = ' + k + ', v = ' + v);
         if (v.inputType === 'textarea') {
             input = '<textarea rows="5"></textarea>';
         } else {
             input = '<input type="' + v.inputType +'" id="something" placeholder="' + v.placeholder + '">';
         }
-        html += '<div class="control-group">' +
-            '<label class="control-label" for="input' + v.id + '">' + v.name + '</label>' +
-            '<div class="controls">' + 
-            input + '</div>' +
-            '</div>';
+        html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
     });
-    $('.form-horizontal').prepend(html);
+    $('form').prepend(html);
 };
 
 $(function(){

@@ -43,86 +43,91 @@
       </div>
     </div>
         
-        <div class="container-fluid">
-
+    <div class="container">
 
         <h1></h1>
 
 
 
-        <hr/>
+    <div class="row">
+        
+        <div class="span8">
+        
+        <div class="well">
+            <p id="form-description"></p>
+        </div>
+
+                <div class="alert alert-error" id="who-are-you-error">
+                    <h4>There's a Problem</h4>
+                    <p>We can't determine your UW NetID. You need a UW NetID before completing this form.</p> 
+                </div>
+
+                <div class="alert alert-success" id="ticket-creation-success">
+                    <h4>Thanks!</h4>
+                    <p>We're processing your request.</p>
+                </div>
 
 
-          <div id="whoami" class="well">
+        <form>
+
+            <div class="form-actions">
+
+
+                <button class="btn-primary btn">Submit</button>
+                <button class="btn">Cancel</button>
+                
+                <hr/>
+            
+            <div id="whoami">
 
             <address>
-              <strong><span class="name lead"></span></strong><br/>
+              <strong><span class="name"></span></strong><br/>
               <span class="title"></span><br/>
-              <span class="mailstop">Mailstop </span><br/>
+              <span class="mailstop"></span><br/>
               <span class="phone"></span><br/>
               <span class="email"></span>
             </address>
           </div>
+          <!-- end #whoami -->
 
-        <hr/>
+            <!-- <label class="checkbox">
+        <input type="checkbox"> Check me out
+    </label> -->
 
 
+            </div>
+        </form>
 
 
-        <div class="form-horizontal">
-<div class="control-group">
-               <label class="control-label" for="subject">Server</label>
+        <p id="ticket-number"></p>
+  
+        <!--<p>Run <a href="http://pivotal.github.com/jasmine/">Jasmine</a> suite of <a href="js/tests/">tests</a></p> -->
+  
+    </div>
+    <!-- end .span8 -->
 
-<!-- <div class="input-append">
+    <div class="span4">
+  
+        <div class="well">
+            <h2>Help Text</h2>
 
-              <input class="span2" id="appendedDropdownButton" type="text">
-              <div class="btn-group">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">Server <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">.s.uw.edu</a></li>
-                  <li><a href="#">.cac.washington.edu</a></li>
+                <ul>
+                    <li> Helpful thing</li>
+                    <li> Helpful thing </li>
                 </ul>
-              </div>
-            </div>
-</div> -->
- 
-          <!-- <div class="control-group">
-             <label class="control-label" for="subject">Subject</label>
-            <div class="controls">
-              <input type="text" id="subject" placeholder="">
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label" for="message">Content</label>
-            <div class="controls">
-              <textarea id="message" rows="3"></textarea>
-            </div>
-          </div> -->
-
-
-
-          <div class="control-group">
-            <div class="controls">
-              <button class="btn-primary btn">Submit</button>
-              <button class="btn">Cancel</button>
-            </div>
-          </div>
         </div>
 
-    <hr/>
-
-    <p id="ticket-number"></p>
-
-
-<p>Run <a href="http://pivotal.github.com/jasmine/">Jasmine</a> suite of <a href="js/tests/">tests</a></p>
+    </div>
+    <!-- end .span4 -->
+    
+    </div>
+    <!-- end .row-fluid -->
 
     </div>
-    <!-- end .container -->
+    <!-- end .container-fluid -->
 
         <script src="js/vendor/jquery-1.8.3.min.js"></script>
-                <script src="js/vendor/bootstrap.min.js"></script>
-
+        <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/helpers.js"></script>
         <script src="js/webforms.js"></script>
 
