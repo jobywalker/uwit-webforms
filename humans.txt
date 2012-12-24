@@ -16,4 +16,5 @@
     jQuery, 
     Modernizr,
     Bootstrap,
-    Grunt
+    Grunt,
+    Sass
