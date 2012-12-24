@@ -106,42 +106,55 @@ webForms.getUser = function () {
         async: false,
         success: function(data) {
             result = data;
-            var user = result.User;
-            if (user === undefined) {
-                $('#whoami, form').hide();
-                $('#who-are-you-error').fadeIn();
-            } else {
-                $('#uw-netid').text(user.UWNetID);
-                $('#whoami .name').append(user.Name);
-                $('#whoami .title').append(user.Title);
-                $('#whoami .mailstop').append(user.Mailstop);
-                $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
-                $('#whoami .email').append(user.PhoneNumbers.Email);
-            }
+            //var user = result.User;
+            //if (user === undefined) {
+            //    $('#whoami, form').hide();
+            //    $('#who-are-you-error').fadeIn();
+            //} else {
+            //    $('#uw-netid').text(user.UWNetID);
+            //    $('#whoami .name').append(user.Name);
+            //    $('#whoami .title').append(user.Title);
+            //    $('#whoami .mailstop').append(user.Mailstop);
+            //    $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
+            //    $('#whoami .email').append(user.PhoneNumbers.Email);
+            //}
         },
         error: function() {
             $('#uw-netid').text('?');
-            $('#whoami .name').append('We can\'t determine who you are.');      
+            $('#whoami .name').append('We can\'t determine who you are.');
         }
     });
     return result.User;
 };
 
-//webForms.user = webForms.getUser();
+webForms.user = webForms.getUser();
 
 webForms.start = function (config) {
     'use strict';
-    webForms.getUser();
-    webForms.displayForm();
-    // var uwNetID = webForms.getUser()
-    var queueParam = getURLParameter('form');
-    var queue = webForms.getQueue(queueParam),
-        subject = $('#subject').val(),
-        message = $('#message').val();
-    //$('#uw-netid').text(uwNetID);
+
+    var user = webForms.user;
+
+    if (user === undefined) {
+        $('#whoami, form').hide();
+        $('#who-are-you-error').fadeIn();
+    } else {
+        var queueParam = getURLParameter('form'),
+            queue = webForms.getQueue(queueParam),
+            subject = $('#subject').val(),
+            message = $('#message').val();
+        webForms.displayForm();
+        
     $('button').click(function() {
         webForms.createTicket(subject, message, queue);
     });
+
+        $('#uw-netid').text(user.UWNetID);
+        $('#whoami .name').append(user.Name);
+        $('#whoami .title').append(user.Title);
+        $('#whoami .mailstop').append(user.Mailstop);
+        $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
+        $('#whoami .email').append(user.PhoneNumbers.Email);
+    }
 };
 
 webForms.displayForm = function () {
@@ -171,10 +184,10 @@ webForms.displayForm = function () {
 };
 
 webForms.buildForm = function (json) {
-    var html = '';
+    var html = '',
+        input = '';
     $('h1').append(json.formName);
-    var input = ''; 
-    $.each(json.fields, function(k, v){
+    $.each(json.formFields, function(k, v){
         console.log('k = ' + k + ', v = ' + v);
         if (v.inputType === 'textarea') {
             input = '<textarea rows="5"></textarea>';
