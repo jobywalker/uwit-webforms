@@ -41,14 +41,7 @@ body {
 } 
 
 
-.nav-pills {
-    .active a {
-        background-color: $uw-purple;
-        :hover {
-            background-color: lighten($uw-purple, 20%);
-        };
-    }
-}
+
 
 
 /* alerts 
@@ -93,4 +86,13 @@ body {
             margin-top: 28px;
         }
     }
+
+    /* .nav-pills {
+        .active a {
+            background-color: $uw-purple;
+            :hover {
+                background-color: lighten($uw-purple, 20%);
+            };
+        }
+    } */
 }
