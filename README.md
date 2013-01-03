@@ -20,6 +20,8 @@ Plugins
 -------
 
 [jQuery Pulse Animation Plugin](http://jsoverson.github.com/jquery.pulse.js/)
+[jQuery Migrate](https://github.com/jquery/jquery-migrate/)
+
 
 Other Notes
 -----------
