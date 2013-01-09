@@ -6,5 +6,9 @@
     "tools": {
         "queue": "AIE::Tools",
         "name": "Tools Queue"
+    },
+    "tsm": {
+        "queue": "SSG::Test",
+        "name": "SSG Test Queue"
     }
 }

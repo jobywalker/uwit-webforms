@@ -1,17 +1,17 @@
 var webForms = {};
 
 
-webForms.start = function () {
-    console.log('starting')
-    var requireUWNetID;
-    if (requireUWNetID === true) {
-        console.log('require netid is true')
-        webForms.displayForm();
-    } else if (requireUWNetID !== true ) {
-        console.log('require netid is false')
-        webForms.displayForm();
-    }
-};
+//webForms.start = function () {
+//    console.log('starting')
+//    var requireUWNetID;
+//    if (requireUWNetID === true) {
+//        console.log('require netid is true')
+//        webForms.displayForm();
+//    } else if (requireUWNetID !== true ) {
+//        console.log('require netid is false')
+//        webForms.displayForm();
+//    }
+//};
 
 webForms.getUser = function () { 
     var url = 'php/user-parcae.php',
@@ -94,7 +94,7 @@ webForms.displayForm = function () {
 
 webForms.getQueue = function (id) { 
     'use strict';
-    console.log('running getQueue')
+    console.log('running getQueue, id = ' + id)
     var url = 'queues.json',
         result = null;
     $.ajax({
@@ -211,34 +211,36 @@ webForms.createTicket = function(subject, message) {
     //    $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
     //    $('#whoami .email').append(user.PhoneNumbers.Email);
     //}
-//webForms.start = function (config) {
-//    'use strict';
-//
-//    var user = webForms.user;
-//
-//    if (user === undefined) {
-//        $('#whoami, form').hide();
-//        $('#who-are-you-error').fadeIn();
-//    } else {
-//        var queueParam = getURLParameter('form'),
-//            queue = webForms.getQueue(queueParam),
-//            subject = $('#subject').val(),
-//            message = $('#message').val();
-//        webForms.displayForm();
-//        
-//    $('button').click(function() {
-//        webForms.createTicket(subject, message, queue);
-//    });
-//
-//        $('#uw-netid').text(user.UWNetID);
-//        $('#whoami .name').append(user.Name);
-//        $('#whoami .title').append(user.Title);
-//        $('#whoami .mailstop').append(user.Mailstop);
-//        $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
-//        $('#whoami .email').append(user.PhoneNumbers.Email);
-//    }
-//};
+webForms.start = function (config) {
+    'use strict';
 
+    var user = webForms.user;
+
+    if (user === undefined) {
+        $('#whoami, form').hide();
+        $('#who-are-you-error').fadeIn();
+    } else {
+        var queueParam = getURLParameter('form'),
+            queue = webForms.getQueue(queueParam),
+            subject = $('#subject').val(),
+            message = $('#message').val();
+
+        queue = webForms.getQueue(queueParam);
+
+        webForms.displayForm();    
+
+    $('button').click(function() {
+        webForms.createTicket(subject, message, queue);
+    });
+
+        $('#uw-netid').text(user.UWNetID);
+        $('#whoami .name').append(user.Name);
+        $('#whoami .title').append(user.Title);
+        $('#whoami .mailstop').append(user.Mailstop);
+        $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
+        $('#whoami .email').append(user.PhoneNumbers.Email);
+    }
+}
 
 
 
