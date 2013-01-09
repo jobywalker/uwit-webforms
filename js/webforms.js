@@ -1,6 +1,5 @@
 var webForms = {};
 
-
 //webForms.start = function () {
 //    console.log('starting')
 //    var requireUWNetID;
@@ -25,19 +24,19 @@ webForms.getUser = function () {
             console.log('user is = ' + data)
         },
         error: function() {
+            console.log('getUser error');
             $('#uw-netid').text('?');
             $('.form-actions').remove();
             $('#who-are-you-error').fadeIn();
-            $('#who-are-you-error').pulse(
-                {color : 'red'}, 
-                {pulses : 2});
+            //$('#who-are-you-error').pulse(
+            //    {color : 'red'}, 
+            //    {pulses : 2});
         }
     });
     return result.User;
 };
 
 webForms.user = webForms.getUser();
-
 
 webForms.displayForm = function () {
     var form = getURLParameter('form'),
@@ -48,10 +47,6 @@ webForms.displayForm = function () {
     if (form === 'tsm') {
         url = 'config/tsm.json';
     }
-
-
-
-
 
     console.log('running displayForm');
     $.ajax({
@@ -88,9 +83,6 @@ webForms.displayForm = function () {
         }
     });
 };
-
-
-
 
 webForms.getQueue = function (id) { 
     'use strict';
@@ -175,7 +167,6 @@ webForms.createTicket = function(subject, message) {
             }
             //console.log('setQueue is ' + setQueue);
             //console.log('user is ' + webForms.user);
-            //webForms.parcaeUser();
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log('ERROR textStatus = ' + textStatus + ', errorThrown = ' + errorThrown);
@@ -185,37 +176,10 @@ webForms.createTicket = function(subject, message) {
 
 // http://stackoverflow.com/questions/905298/jquery-storing-ajax-response-into-global-variable
 
-
-
-
-    //var user = webForms.user;
-//
-    //if (user === undefined) {
-    //    $('#whoami, form').hide();
-    //    $('#who-are-you-error').fadeIn();
-    //} else {
-    //    var queueParam = getURLParameter('form'),
-    //        queue = webForms.getQueue(queueParam),
-    //        subject = $('#subject').val(),
-    //        message = $('#message').val();
-    //    webForms.displayForm();
-    //    
-    ////$('button').click(function() {
-    //////    webForms.createTicket(subject, message, queue);
-    ////});
-//
-    //    $('#uw-netid').text(user.UWNetID);
-    //    $('#whoami .name').append(user.Name);
-    //    $('#whoami .title').append(user.Title);
-    //    $('#whoami .mailstop').append(user.Mailstop);
-    //    $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
-    //    $('#whoami .email').append(user.PhoneNumbers.Email);
-    //}
 webForms.start = function (config) {
     'use strict';
-
     var user = webForms.user;
-
+    console.log('start user = ' + user);
     if (user === undefined) {
         $('#whoami, form').hide();
         $('#who-are-you-error').fadeIn();
@@ -229,10 +193,10 @@ webForms.start = function (config) {
 
         webForms.displayForm();    
 
-    $('button').click(function() {
-        webForms.createTicket(subject, message, queue);
-    });
-
+        $('button').click(function() {
+            webForms.createTicket(subject, message, queue);
+        });
+        
         $('#uw-netid').text(user.UWNetID);
         $('#whoami .name').append(user.Name);
         $('#whoami .title').append(user.Title);
@@ -247,10 +211,6 @@ webForms.start = function (config) {
 
 $(function(){
     'use strict';
-    //console.log('dom ready');
-    //webForms.parcaeUser();
-    webForms.start({
-        requireUWNetID: true
-
-    });
+    console.log('dom ready');
+    webForms.start();
 });
