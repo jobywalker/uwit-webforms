@@ -44,7 +44,7 @@ webForms.displayForm = function () {
     var form = getURLParameter('form'),
         url;
     if (form === 'test') {
-        url = 'test-form-config.json';
+        url = 'config/test.json';
     } 
     if (form === 'tsm') {
         url = 'config/tsm.json';

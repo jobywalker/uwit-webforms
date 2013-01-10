@@ -1,10 +1,12 @@
 {
-    "formName": "SSG::Test Ticket Form",  
-    "formDescription" : "Test form.",
-    "formHelpText" : "",
+    "formName": "Request a Webform",  
+    "formDescription" : "Request a new form from the UW-IT Webform Service.",
+    "formHelpText" : "Placeholder",
+    "formOwner" : "jtate",
+    "formOwnerEmail" : "webforms@uw.edu",
     "formFields": {
         "subject": {
-            "name": "Subject",
+            "name": "Form",
             "inputType": "text",
             "helpText": "text",
             "placeholder": "",
@@ -12,12 +14,15 @@
             "required": true
         },
         "message": {
-            "name": "Message",
+            "name": "More",
             "inputType": "textarea",
             "helpText": "text",
             "placeholder": null,
             "value" : null,
             "required": true
         }
+    },
+    "formThanks" : {
+        "Message" : "Thansk for your message. We will reply as soon as possible."
     }
 }
