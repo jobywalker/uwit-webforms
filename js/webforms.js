@@ -19,12 +19,14 @@ webForms.getUser = function () {
     $.ajax({
         url: testUrl,
         async: false,
+        dataType: 'json',
+        contentType: 'application/json',
         success: function(data) {
             result = data;
-            console.log('user is = ' + data)
+            //console.log('webForms.getUser user is = ' + data)
         },
         error: function() {
-            console.log('getUser error');
+            console.log('webForms.getUser error');
             $('#uw-netid').text('?');
             $('.form-actions').remove();
             $('#who-are-you-error').fadeIn();
@@ -92,6 +94,8 @@ webForms.getQueue = function (id) {
     $.ajax({
         url: url,
         async: false,
+        dataType: 'json',
+        contentType: 'application/json',
         success: function(data, textStatus, jqXHR) {
             result = data[id];
             //$('#uw-netid').text(result.user);
@@ -178,8 +182,10 @@ webForms.createTicket = function(subject, message) {
 
 webForms.start = function (config) {
     'use strict';
-    var user = webForms.user;
-    console.log('start user = ' + user);
+    //var user = webForms.user;
+    var user  = webForms.getUser();
+
+    console.log('webForms.start user = ' + user);
     if (user === undefined) {
         $('#whoami, form').hide();
         $('#who-are-you-error').fadeIn();
@@ -205,9 +211,6 @@ webForms.start = function (config) {
         $('#whoami .email').append(user.PhoneNumbers.Email);
     }
 }
-
-
-
 
 $(function(){
     'use strict';
