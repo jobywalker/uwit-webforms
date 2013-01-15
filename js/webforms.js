@@ -146,8 +146,11 @@ webForms.getNewTicketNumber = function (data) {
 // https://rtdev.cac.washington.edu/webforms/js/rt-test.js
 webForms.createTicket = function(subject, message) {
     'use strict';
+    console.log('run createTicket')
 
     var queue = 'SSG::Test',
+        ajaxUrl = 'https://rtdev.cac.washington.edu/Tools/Offline.html',
+        ajaxTestUrl = 'Offline.html',
         rtDevURL = 'https://rtdev.cac.washington.edu/Ticket/Display.html?id=',
         ticket,
         ticketStringPost = {
@@ -159,17 +162,20 @@ webForms.createTicket = function(subject, message) {
 
     $.ajax({
         //type: 'POST',
-        url: 'https://rtdev.cac.washington.edu/Tools/Offline.html',
+        url: ajaxTestUrl,
         //url : 'Offline.html',
         //contentType: "application/x-www-form-urlencoded",
         data: ticketStringPost,
         //url: 'test.txt',
         success: function(data, textStatus, jqXHR){
             console.log('SUCCESS \n data = ' + data + ', textStatus = ' + textStatus);
-            ticket = Number(webForms.getNewTicketNumber(data));
+            //ticket = Number(webForms.getNewTicketNumber(data));
+            
+            ticket = "Fake Number";
             //ticket = Number('random string');
             if (isNaN(ticket) === true) {
-                $('#ticket-number').html('Something went awry');     
+                $('#ticket-number').html('Something went awry'); 
+                $('#ticket-creation-error').show();    
             } else {
                 $('#ticket-number').html('Created RT Ticket <a href="' + rtDevURL + ticket + '">' + ticket + '</a>');
             }

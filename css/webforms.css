@@ -26,7 +26,8 @@ body {
 /* alerts 
 ----------------------------------- */
 #who-are-you-error,
-#ticket-creation-success {
+#ticket-creation-success,
+#ticket-creation-error {
   display: none; }
 
 /* index page 
