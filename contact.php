@@ -1,39 +1,38 @@
 <?php include 'includes/header.php' ?>
 
-<div class="container-fluid">
+<div class="container">
 
 
-        <h1></h1>
-
-        <hr/>
-
-        <div class="form-horizontal">
+        <h1>Request a WebForm</h1>
 
  
-          <div class="control-group">
              <label class="control-label" for="subject">Subject</label>
-            <div class="controls">
-              <input type="text" id="subject" placeholder="">
-            </div>
-          </div>
+                    <input name="form_name" id="form_name" type="text" placeholder="Your Name">
 
-          <div class="control-group">
             <label class="control-label" for="message">Content</label>
-            <div class="controls">
-              <textarea id="message" rows="3"></textarea>
-            </div>
-          </div>
+                <textarea tabindex="-8" rows="10" placeholder="Type your awesome message here." class="placeholder" name="msg_text" id="msg_text"></textarea>
+              
 
-          <div class="control-group">
-            <div class="controls">
-              <a class="btn-primary btn" id="submit-email">Submit</a>
-              <button class="btn">Cancel</button>
-            </div>
-          </div>
-        </div>
+              <button type="button" class="btn-primary btn" id="submit-email">Submit</button>
+              <button type="button" class="btn">Cancel</button>
+
+
+        <p class="success" style="display:none">
+            Your message has been sent successfully.
+        </p>
+
+
+
+
 
     <hr/>
 
     <p id="ticket-number"></p>
+</div>
 
-<?php include 'includes/footer.php' ?>
+<?php 
+
+
+  include 'includes/footer.php' 
+
+?>

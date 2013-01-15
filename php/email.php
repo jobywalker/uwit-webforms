@@ -19,7 +19,7 @@
                     <input name="form_email" id="form_email" type="text" placeholder="Your Email">
                 </div>
                 <textarea tabindex="-8" rows="10" placeholder="Type your awesome message here." class="placeholder" name="msg_text" id="msg_text">
-</textarea>
+            </textarea>
             </fieldset><input type="submit" value="Send Your Message" name="submit" class="button">
         </form>
         <p class="success" style="display:none">
