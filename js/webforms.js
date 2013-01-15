@@ -67,12 +67,16 @@ webForms.displayForm = function () {
                 console.log('k = ' + k + ', v = ' + v);
                 if (v.inputType === 'textarea') {
                     input = '<textarea rows="5"></textarea>';
-                } else {
+                } else if (v.inputType === 'select') {
+                    input = '<select></select>';
+                }
+
+                else {
                     input = '<input type="' + v.inputType +'" id="something" placeholder="' + v.placeholder + '"><span class="help-inline help-popover" title="' + v.name + '" data-content="' + v.helpText + '"> <i class="icon-question-sign"></i></span>';
                 }
                 html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
             });
-            $('form').prepend(html);
+            $('#form-fields').append(html);
             $('.help-popover').popover({
                 trigger: 'hover',
                 placement: 'right'
@@ -204,11 +208,14 @@ webForms.start = function (config) {
         });
         
         $('#uw-netid').text(user.UWNetID);
-        $('#whoami .name').append(user.Name);
-        $('#whoami .title').append(user.Title);
-        $('#whoami .mailstop').append(user.Mailstop);
-        $('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
-        $('#whoami .email').append(user.PhoneNumbers.Email);
+        //$('#whoami .name').append(user.Name);
+        //$('#whoami .title').append(user.Title);
+        //$('#whoami .mailstop').append(user.Mailstop);
+        //$('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
+        //$('#whoami .email').append(user.PhoneNumbers.Email);
+
+        $('#user-name').val(user.Name);
+        $('#user-uwnetid').val(user.UWNetID);
     }
 }
 
