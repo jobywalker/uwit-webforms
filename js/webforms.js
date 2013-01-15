@@ -50,7 +50,8 @@ webForms.displayForm = function () {
         url = 'config/tsm.json';
     }
 
-    $('#form-description a').click(function(){
+    $('.help-text-toggle').click(function(){
+        console.log('.help-text-toggle')
         $('#help-text').fadeToggle();
     });
 

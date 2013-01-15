@@ -34,13 +34,6 @@
             <h4><i class="icon-ok"></i> Thanks</h4>
             We're processing your request.
         </div>
-</div>
-
-
-        
-
-        </div>
-
 
         <form>
 
@@ -59,9 +52,9 @@
     <legend>Your Information</legend>
             <div class="row">
 
-                <div class="span3">                
+                <div class="span2">                
                     <label>Name</label>
-                <input class="span3"  id="user-name" type="text" placeholder="">
+                <input class="span2" id="user-name" type="text" placeholder="">
             </div>
 
 
@@ -96,8 +89,6 @@
     <legend>Server Request</legend>
             <div id="form-fields">
 
-
-
             </div>
         </fieldset>
 
@@ -124,6 +115,7 @@
             <!-- end #whoami -->
 
             </div>
+            <!-- end .form-actions -->
         </form>
 
 
@@ -137,46 +129,50 @@
         <!-- Button to trigger modal -->
 <!--<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
  
+
+
+
+    </div>
+    <!-- end span8 -->
+
+
+
+
+
+    <div class="span4">
+        <div class="well" id="help-text">
+            <div class="alert alert-info demo">
+                <strong>Note</strong> This help text isn't required.
+            </div>
+            <h3>Optional Help Text</h3>
+                <ul>
+                    <li> Top-aligned labels tend to reduce form completion time the most. (57) </li>
+                    <li> Help text isn't the holy grail of Web form completion. (104) </li>
+                </ul>
+        </div>
+    </div>
+    <!-- end .span4 -->
+    
+    </div>
+    <!-- end .row -->
+
+
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">There's a problem</h3>
-  </div>
-  <div class="modal-body">
-
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">There's a problem</h3>
+    </div>
+    <div class="modal-body">
         <div class="alert alert-error">
             <p> </p> 
         </div>
   </div>
 
 </div>
-  
-    </div>
-    <!-- end .span8 -->
-
-    <div class="span4">
-  
-        <div class="well" id="help-text">
-
-                    <div class="alert alert-info demo">
-            <strong>Note</strong> This help text isn't required.
-        </div>
-            <h3>Optional Help Text</h3>
-
-                <ul>
-                    <li> Top-aligned labels tend to reduce form completion time the most. (57) </li>
-                    <li> Help text isn't the holy grail of Web form completion. (104) </li>
-                </ul>
-        </div>
+</div>
 
     </div>
-    <!-- end .span4 -->
-    
-    </div>
-    <!-- end .row-fluid -->
-
-    </div>
-    <!-- end .container-fluid -->
+    <!-- end .container -->
 
 <?php include('includes/footer.php') ?>
