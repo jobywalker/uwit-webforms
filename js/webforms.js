@@ -73,7 +73,11 @@ webForms.displayForm = function () {
                 if (v.inputType === 'textarea') {
                     input = '<textarea rows="5"></textarea>';
                 } else if (v.inputType === 'select') {
-                    input = '<select></select>';
+                    var options;
+                    $.each(v.selectOptions, function(i,option){
+                        options += '<option>' + option + '</option>';
+                    })
+                    input = '<select>' + options + '</select>';
                 }
 
                 else {
