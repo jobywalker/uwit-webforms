@@ -50,6 +50,10 @@ webForms.displayForm = function () {
         url = 'config/tsm.json';
     }
 
+    $('#form-description a').click(function(){
+        $('#help-text').fadeToggle();
+    });
+
     console.log('running displayForm');
     $.ajax({
         url: url,
@@ -81,8 +85,7 @@ webForms.displayForm = function () {
                 trigger: 'hover',
                 placement: 'right'
             });
-    
-    
+            $('#form-description').prepend(json.formDescription);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             ajaxConsoleLog('displayForm', textStatus, jqXHR);
@@ -193,7 +196,12 @@ webForms.createTicket = function(subject, message) {
 webForms.start = function (config) {
     'use strict';
     //var user = webForms.user;
+
     var user  = webForms.getUser();
+
+    if (getURLParameter('demo') === 'true') {
+        $('.demo').show()
+    }
 
     console.log('webForms.start user = ' + user);
     if (user === undefined) {
@@ -222,6 +230,8 @@ webForms.start = function (config) {
 
         $('#user-name').val(user.Name);
         $('#user-uwnetid').val(user.UWNetID);
+        $('#user-phone').val(user.PhoneNumbers.PhoneNumber);
+
     }
 }
 

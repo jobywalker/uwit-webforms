@@ -4,7 +4,7 @@
 
     <header>
         <h1></h1>
-        <p class="lead">More of a description here. <span><i class="icon-info-sign"></i></span></p>
+        <p class="lead" id="form-description"> <a class="help-text-toggle"><i class="icon-info-sign"></i></a></p>
     </header>
 
 
@@ -12,15 +12,15 @@
         
         <div class="span8">
         
-        <div class="well">
+        <!--<div class="well">
             <p id="form-description">Or more of a description here.</p>
-        </div>
+        </div> -->
 
         <div class="alert alert-error" id="ticket-creation-error">
             <strong>Ticket Creation Problem</strong> Descriptive error message.
         </div>
 
-        <div class="alert alert-info">
+        <div class="alert alert-info demo">
             <strong>Note</strong> This is a tenative list of fields. The order and grouping may be changed as well.
         </div>
 
@@ -37,15 +37,62 @@
 
         <form>
 
-            <div class="controls controls-row">
-                <label>Name and UW NetID</label>
+<!--            <div class="controls controls-row">
+                <label>Name</label>
                 <input class="span2" id="user-name" type="text" placeholder="">
+                <div class="span1"></div>
+                                <label>UW NetID</label>
+
                 <input class="span1" id="user-uwnetid" type="text" placeholder="">
+            </div> -->
+
+
+<fieldset>
+
+    <legend>Your Information</legend>
+            <div class="row">
+
+                <div class="span3">                
+                    <label>Name</label>
+                <input class="span3"  id="user-name" type="text" placeholder="">
             </div>
-  
-            <div id="form-fields">
+
+
+                <div class="span2"> 
+                    <label>UW NetID</label>
+                    <input class="span2" id="user-uwnetid" type="text" placeholder="">
+                </div>
+
+                <div class="span2"> 
+                    <label>Phone</label>
+                    <input class="span2" id="user-phone" type="text" placeholder="">
+                </div>
 
             </div>
+
+        <div class="alert alert-info demo">
+            <strong>Note</strong><br/> We can also retrieve:
+            <ul>
+             <li>Title </li>
+        <li>Mailstop</li>
+        <li>Email</li>
+        <li>More Phone Numbers</li>
+
+            </ul>
+        </div>
+            <br/>
+        </fieldset>
+
+
+  <fieldset>
+
+    <legend>Server Request</legend>
+            <div id="form-fields">
+
+
+
+            </div>
+        </fieldset>
 
             <div class="form-actions">
 
@@ -57,16 +104,16 @@
             
             <div id="whoami">
 
-            <div class="alert alert-info">
+            <div class="alert alert-info demo">
                 <strong>Note</strong> This area may or may not be used.
             </div>
-            <address>
+            <!-- <address>
                 <strong><span class="name"></span></strong><br/>
                 <span class="title"></span><br/>
                 <span class="mailstop"></span><br/>
                 <span class="phone"></span><br/>
                 <span class="email"></span>
-            </address>
+            </address> -->
             
             </div>
             <!-- end #whoami -->
@@ -84,7 +131,11 @@
 
     <div class="span4">
   
-        <div class="well">
+        <div class="well" id="help-text">
+
+                    <div class="alert alert-info demo">
+            <strong>Note</strong> This help text isn't required.
+        </div>
             <h3>Optional Help Text</h3>
 
                 <ul>

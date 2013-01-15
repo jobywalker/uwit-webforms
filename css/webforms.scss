@@ -53,6 +53,27 @@ body {
     display: none;
 }
 
+/* help text 
+----------------------------------- */
+
+#help-text {
+    display:none;
+}
+
+.help-text-toggle {
+    cursor: pointer;
+    &:hover {
+    text-decoration: none;
+
+    };
+}
+
+/*  
+----------------------------------- */
+
+.demo {
+    display: none;
+}
 
 /* index page 
 ----------------------------------- */

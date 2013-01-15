@@ -6,43 +6,43 @@
         "subject": {
             "name": "Subject",
             "inputType": "text",
-            "helpText": "text",
-            "placeholder": "text",
+            "helpText": "Not needed beside every field",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "description": {
             "name": "Description",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "serviceCategory": {
             "name": "Category",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "serviceOption": {
             "name": "Service Option",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "urgency": {
             "name": "Urgency (Incident)",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "priority": {
             "name": "Priority (Requests)",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "authorized": {
@@ -50,21 +50,21 @@
             "inputType": "select",
             "select" : ["yes, no"],
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "budget": {
             "name": "Budget",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         },
         "serverName": {
             "name": "Server Name",
             "inputType": "text",
             "helpText": "text",
-            "placeholder": "text",
+            "placeholder": "Placeholder text",
             "required": true
         }
     }

@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.html">UW-IT Webforms</a>
+          <a class="brand" href="index.html">UW-IT Webforms <span style="font-weight:strong; color:#FFFFFF;">BETA</span></a>
           <div class="nav-collapse collapse">
 
 
@@ -50,9 +50,9 @@
 
 
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <!--<li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#contact">Help</a></li>
+              <li><a href="#contact">Help</a></li>-->
             </ul>
           </div><!--/.nav-collapse -->
         </div>

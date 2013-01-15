@@ -30,6 +30,21 @@ body {
 #ticket-creation-error {
   display: none; }
 
+/* help text 
+----------------------------------- */
+#help-text {
+  display: none; }
+
+.help-text-toggle {
+  cursor: pointer; }
+  .help-text-toggle:hover {
+    text-decoration: none; }
+
+/*  
+----------------------------------- */
+.demo {
+  display: none; }
+
 /* index page 
 ----------------------------------- */
 #index-page {
