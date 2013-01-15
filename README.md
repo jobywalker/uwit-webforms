@@ -1,7 +1,7 @@
 # UW-IT Web Forms
 =================
 
-A service for webforms. 
+A UW-IT service for webforms. 
 
 Technologies
 ------------

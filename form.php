@@ -16,6 +16,7 @@
             <p id="form-description">Or more of a description here.</p>
         </div> -->
 
+
         <div class="alert alert-error" id="ticket-creation-error">
             <strong>Ticket Creation Problem</strong> Descriptive error message.
         </div>
@@ -30,8 +31,14 @@
         </div>
 
         <div class="alert alert-success" id="ticket-creation-success">
-            <h4>Thanks!</h4>
-            <p>We're processing your request.</p>
+            <h4><i class="icon-ok"></i> Thanks</h4>
+            We're processing your request.
+        </div>
+</div>
+
+
+        
+
         </div>
 
 
@@ -95,9 +102,7 @@
         </fieldset>
 
             <div class="form-actions">
-
-
-                <button type="button" class="btn-primary btn">Submit</button>
+                <button type="button" class="btn-primary btn" id="submit-form">Submit</button>
                 <button type="button" class="btn">Cancel</button>
                 
                 <hr/>
@@ -122,9 +127,30 @@
         </form>
 
 
-        <p id="ticket-number"></p>
+        <p id="ticket-number">To view your request you can visit <span></span>.</p>
+<br/>
+        <button type="button" class="btn-primary btn" id="another-request" onClick="window.location.reload()">Create Another Request</button>
   
         <!--<p>Run <a href="http://pivotal.github.com/jasmine/">Jasmine</a> suite of <a href="js/tests/">tests</a></p> -->
+
+
+        <!-- Button to trigger modal -->
+<!--<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
+ 
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">There's a problem</h3>
+  </div>
+  <div class="modal-body">
+
+        <div class="alert alert-error">
+            <p> </p> 
+        </div>
+  </div>
+
+</div>
   
     </div>
     <!-- end .span8 -->

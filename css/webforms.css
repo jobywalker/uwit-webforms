@@ -45,6 +45,12 @@ body {
 .demo {
   display: none; }
 
+#another-request {
+  display: none; }
+
+#ticket-number {
+  display: none; }
+
 /* index page 
 ----------------------------------- */
 #index-page {

@@ -173,15 +173,27 @@ webForms.createTicket = function(subject, message) {
         success: function(data, textStatus, jqXHR){
             console.log('SUCCESS \n data = ' + data + ', textStatus = ' + textStatus);
             //ticket = Number(webForms.getNewTicketNumber(data));
-            
-            ticket = "Fake Number";
+            $('#ticket-creation-success').fadeIn();
+            $('form').hide();
+
+            var differentString = data;
+            differentString.split('Ticket ')[1];
+            var ticketString = differentString.split('Ticket ')[1];
+            ticket = ticketString.split(' ')[0];
+        
+            $('#ticket-number, #another-request').show()
+            $('#ticket-number span').html('<a href="' + rtDevURL + ticket + '">RT ' + ticket + '</a>');
+
+            //$('#ticket-number').html(ticket);
+            //ticket = "Fake Number";
             //ticket = Number('random string');
-            if (isNaN(ticket) === true) {
-                $('#ticket-number').html('Something went awry'); 
-                $('#ticket-creation-error').show();    
-            } else {
-                $('#ticket-number').html('Created RT Ticket <a href="' + rtDevURL + ticket + '">' + ticket + '</a>');
-            }
+            //if (isNaN(ticket) === true) {
+            //    $('#myModal').modal('show')
+            //    $('.modal-body p').text('Something went awry'); 
+            //    $('#ticket-creation-error').show();    
+            //} else {
+            //    $('#ticket-number').html('Created RT Ticket <a href="' + rtDevURL + ticket + '">' + ticket + '</a>');
+            //}
             //console.log('setQueue is ' + setQueue);
             //console.log('user is ' + webForms.user);
         },
@@ -217,7 +229,7 @@ webForms.start = function (config) {
 
         webForms.displayForm();    
 
-        $('button').click(function() {
+        $('#submit-form').click(function() {
             webForms.createTicket(subject, message, queue);
         });
         
