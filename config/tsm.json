@@ -1,54 +1,19 @@
 {
     "formName": "TSM Backup Server Request",
-    "formDescription" : "Using this form you can request a new <a href=\"http://www-142.ibm.com/software/products/us/en/tivostormana/>\">Tivoli Storage Manager</a> (TSM) Backup.",
+    "formDescription" : "Using this form you can request a new <a href=\"http://www-142.ibm.com/software/products/us/en/tivostormana/>\">Tivoli Storage Manager</a> (TSM) Backup or change an existing one.",
     "formHelpText" : "",
     "formFields": { 
         "subject": {
             "name": "Subject",
-            "inputType": "text",
+            "inputType": "select",
+            "selectOptions" : ["New Node", "Existing"],
             "helpText": "Not needed beside every field",
             "placeholder": "Placeholder text",
             "required": true
         },
-        "description": {
-            "name": "Description",
-            "inputType": "text",
-            "helpText": "text",
-            "placeholder": "Placeholder text",
-            "required": true
-        },
-        "serviceCategory": {
-            "name": "Category",
-            "inputType": "text",
-            "helpText": "text",
-            "placeholder": "Placeholder text",
-            "required": true
-        },
-        "serviceOption": {
-            "name": "Service Option",
-            "inputType": "text",
-            "helpText": "text",
-            "placeholder": "Placeholder text",
-            "required": true
-        },
-        "urgency": {
-            "name": "Urgency (Incident)",
-            "inputType": "text",
-            "helpText": "text",
-            "placeholder": "Placeholder text",
-            "required": true
-        },
-        "priority": {
-            "name": "Priority (Requests)",
-            "inputType": "text",
-            "helpText": "text",
-            "placeholder": "Placeholder text",
-            "required": true
-        },
-        "authorized": {
-            "name": "Authorized",
-            "inputType": "select",
-            "select" : ["yes, no"],
+        "comments": {
+            "name": "Comments",
+            "inputType": "textarea",
             "helpText": "text",
             "placeholder": "Placeholder text",
             "required": true
