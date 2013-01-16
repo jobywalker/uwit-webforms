@@ -40,28 +40,32 @@ webForms.getUser = function () {
 
 webForms.user = webForms.getUser();
 
-webForms.displayForm = function () {
+webForms.buildForm = function () {
     var form = getURLParameter('form'),
-        url = 'config/' + form + '.json';
+        configUrl = 'config/' + form + '.json';
 
     $('.help-text-toggle').click(function(){
         console.log('.help-text-toggle')
         $('#help-text').fadeToggle();
     });
 
-    console.log('running displayForm');
+    //console.log('running displayForm');
     $.ajax({
-        url: url,
+        url: configUrl,
         dataType: 'json',
         contentType: 'application/json',
         success: function (data, textStatus, jqXHR) {
-            ajaxConsoleLog('displayForm', textStatus, jqXHR);
-            console.log('data for displayForm = ' + data);
+            // ajaxConsoleLog('displayForm', textStatus, jqXHR);
+            // console.log('data for displayForm = ' + data);
             //webForms.buildForm(data);
             var json = data,
                 html = '',
                 input = '';
+
             $('h1').append(json.formName);
+            $('#submit-form').click(function() {
+                webForms.createTicket(json.formQueue);
+            });
             
             $.each(json.formFieldsets, function(key, value){
                 //console.log('formFieldsets : key = ' + key + ', value = ' + value);
@@ -88,6 +92,7 @@ webForms.displayForm = function () {
 
             // attach all the HTML
             $('#form-fields').append(html);
+
             $('.help-popover').popover({
                 trigger: 'hover',
                 placement: 'right'
@@ -101,29 +106,30 @@ webForms.displayForm = function () {
     });
 };
 
-webForms.getQueue = function (id) { 
-    'use strict';
-    console.log('running getQueue, id = ' + id)
-    var url = 'queues.json',
-        result = null;
-    $.ajax({
-        url: url,
-        async: false,
-        dataType: 'json',
-        contentType: 'application/json',
-        success: function(data, textStatus, jqXHR) {
-            result = data[id];
-            //$('#uw-netid').text(result.user);
-            // error: jqXHR, textStatus, errorThrown
-            ajaxConsoleLog('getQueue', textStatus, jqXHR);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            ajaxConsoleLog('getQueue', textStatus, jqXHR);
-        }
-    });
-    console.log('result.queue = ' + result.queue);
-    return result.queue;
-};
+// http://stackoverflow.com/questions/905298/jquery-storing-ajax-response-into-global-variable
+//webForms.getQueue = function (id) { 
+//    'use strict';
+//    console.log('running getQueue, id = ' + id)
+//    var url = 'queues.json',
+//        result = null;
+//    $.ajax({
+//        url: url,
+//        async: false,
+//        dataType: 'json',
+//        contentType: 'application/json',
+//        success: function(data, textStatus, jqXHR) {
+//            result = data[id];
+//            //$('#uw-netid').text(result.user);
+//            // error: jqXHR, textStatus, errorThrown
+//            ajaxConsoleLog('getQueue', textStatus, jqXHR);
+//        },
+//        error: function (jqXHR, textStatus, errorThrown) {
+//            ajaxConsoleLog('getQueue', textStatus, jqXHR);
+//        }
+//    });
+//    console.log('result.queue = ' + result.queue);
+//    return result.queue;
+//};
 
 webForms.getNewTicketNumber = function (data) {
     'use strict';
@@ -155,12 +161,11 @@ webForms.getNewTicketNumber = function (data) {
 //};
 
 // https://rtdev.cac.washington.edu/webforms/js/rt-test.js
-webForms.createTicket = function(subject, message) {
+webForms.createTicket = function(queue, subject) {
     'use strict';
-    console.log('run createTicket')
+    //console.log('run createTicket')
 
-    var queue = 'SSG::Test',
-        ajaxUrl = 'https://rtdev.cac.washington.edu/Tools/Offline.html',
+    var ajaxUrl = 'https://rtdev.cac.washington.edu/Tools/Offline.html',
         ajaxTestUrl = 'test-files/Offline.html',
         rtDevURL = 'https://rtdev.cac.washington.edu/Ticket/Display.html?id=',
         ticket,
@@ -185,11 +190,11 @@ webForms.createTicket = function(subject, message) {
             $('form').hide();
 
             var differentString = data;
-            differentString.split('Ticket ')[1];
+                differentString.split('Ticket ')[1];
             var ticketString = differentString.split('Ticket ')[1];
-            ticket = ticketString.split(' ')[0];
+                ticket = ticketString.split(' ')[0];
         
-            $('#ticket-number, #another-request').show()
+            $('#ticket-number, #another-request').show();
             $('#ticket-number span').html('<a href="' + rtDevURL + ticket + '">RT ' + ticket + '</a>');
 
             //$('#ticket-number').html(ticket);
@@ -211,43 +216,36 @@ webForms.createTicket = function(subject, message) {
     });
 }
 
-// http://stackoverflow.com/questions/905298/jquery-storing-ajax-response-into-global-variable
-
-webForms.start = function (config) {
+webForms.start = function () {
     'use strict';
-    //var user = webForms.user;
 
-    var user  = webForms.getUser();
+    var user  = webForms.getUser(),
+        //queueParam = getURLParameter('form'),
+        //queue = webForms.getQueue(queueParam);
+        form = getURLParameter('form');
 
-    if (getURLParameter('demo') === 'true') {
-        $('.demo').show()
+
+    if (getURLParameter('demo') === 'true' || form === 'demo') {
+        $('.demo').fadeIn();
     }
 
-    console.log('webForms.start user = ' + user);
+    //console.log('webForms.start user = ' + user);
+
+    // if, at start, some things are unknown, then we can't start 
+
     if (user === undefined) {
         $('#whoami, form').hide();
         $('#who-are-you-error').fadeIn();
     } else {
-        var queueParam = getURLParameter('form'),
-            queue = webForms.getQueue(queueParam),
-            subject = $('#subject').val(),
-            message = $('#message').val();
 
-        queue = webForms.getQueue(queueParam);
+        if (form === undefined) {
+            console.log('form is undefined');
+        }
 
-        webForms.displayForm();    
+        webForms.buildForm(form);    
 
-        $('#submit-form').click(function() {
-            webForms.createTicket(subject, message, queue);
-        });
         
         $('#uw-netid').text(user.UWNetID);
-        //$('#whoami .name').append(user.Name);
-        //$('#whoami .title').append(user.Title);
-        //$('#whoami .mailstop').append(user.Mailstop);
-        //$('#whoami .phone').append(user.PhoneNumbers.PhoneNumber);
-        //$('#whoami .email').append(user.PhoneNumbers.Email);
-
         $('#user-name').val(user.Name);
         $('#user-uwnetid').val(user.UWNetID);
         $('#user-phone').val(user.PhoneNumbers.PhoneNumber);
@@ -257,6 +255,6 @@ webForms.start = function (config) {
 
 $(function(){
     'use strict';
-    console.log('dom ready');
+    // console.log('dom ready');
     webForms.start();
 });

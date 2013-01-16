@@ -1,0 +1,58 @@
+{
+    "formName": "Demonstration Form",
+    "formQueue" : "SSG::Test",
+    "formDescription": "This form demonstrates what a sample form can do.",
+    "formHelpText": "Provide help text.",
+    "formFieldsets": {
+        "information": {
+            "legend": "A Group of Form Fields",
+            "fieldsetDescription" : "An optional description of the field grouping.",
+            "fields": {
+                "request": {
+                    "name": "Request",
+                    "inputType": "select",
+                    "selectOptions": [
+                        "Selection One",
+                        "Selection Two"
+                    ],
+                    "helpText": "Not needed beside every field",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "comments": {
+                    "name": "Comments",
+                    "inputType": "textarea",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                }
+            }
+        },
+        "budget": {
+            "legend": "Another Group of Fields",
+            "fields": {
+                "budget": {
+                    "name": "Budget Number",
+                    "inputType": "text",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "task": {
+                    "name": "Task Number",
+                    "inputType": "text",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "option": {
+                    "name": "Option Number",
+                    "inputType": "text",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 {
     "formName": "TSM Backup Server Request",
+    "formQueue" : "SSG::Test",
     "formDescription": "Using this form you can request a new <a href=\"http://www-142.ibm.com/software/products/us/en/tivostormana/>\">Tivoli Storage Manager</a> (TSM) Backup or change an existing one.",
     "formHelpText": "Might be complicated enough to warrant a .load();",
     "formFieldsets": {

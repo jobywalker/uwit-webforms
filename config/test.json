@@ -1,7 +1,8 @@
 {
-    "formName": "SSG::Test Ticket Form",  
-    "formDescription" : "Test form.",
-    "formHelpText" : "",
+    "formName": "SSG::Test Ticket Form",
+    "formQueue" : "SSG::Test",  
+    "formDescription" : "A Test form.",
+    "formHelpText" : "A Test form.",
     "formFields": {
         "subject": {
             "name": "Subject",
