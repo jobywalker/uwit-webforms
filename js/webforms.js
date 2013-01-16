@@ -15,24 +15,33 @@ var webForms = {};
 webForms.getUser = function () { 
     var url = 'php/user-parcae.php',
         testUrl = 'test-files/user.json',
-        result = null;
+        result = null,
+        user;
     $.ajax({
         url: testUrl,
         async: false,
         dataType: 'json',
         contentType: 'application/json',
         success: function(data) {
+            user = data.User;
             result = data;
-            //console.log('webForms.getUser user is = ' + data)
+            console.log('webForms.getUser user is = ' + user.UWNetID)
+
+            if (user === undefined) {
+                return
+            } else {
+                $('#uw-netid').text(user.UWNetID);
+                $('#user-name').val(user.Name);
+                $('#user-uwnetid').val(user.UWNetID);
+                $('#user-phone').val(user.PhoneNumbers.PhoneNumber);
+            }
+
+
         },
         error: function() {
             console.log('webForms.getUser error');
             $('#uw-netid').text('?');
             $('.form-actions').remove();
-            $('#who-are-you-error').fadeIn();
-            //$('#who-are-you-error').pulse(
-            //    {color : 'red'}, 
-            //    {pulses : 2});
         }
     });
     return result.User;
@@ -107,29 +116,6 @@ webForms.buildForm = function () {
 };
 
 // http://stackoverflow.com/questions/905298/jquery-storing-ajax-response-into-global-variable
-//webForms.getQueue = function (id) { 
-//    'use strict';
-//    console.log('running getQueue, id = ' + id)
-//    var url = 'queues.json',
-//        result = null;
-//    $.ajax({
-//        url: url,
-//        async: false,
-//        dataType: 'json',
-//        contentType: 'application/json',
-//        success: function(data, textStatus, jqXHR) {
-//            result = data[id];
-//            //$('#uw-netid').text(result.user);
-//            // error: jqXHR, textStatus, errorThrown
-//            ajaxConsoleLog('getQueue', textStatus, jqXHR);
-//        },
-//        error: function (jqXHR, textStatus, errorThrown) {
-//            ajaxConsoleLog('getQueue', textStatus, jqXHR);
-//        }
-//    });
-//    console.log('result.queue = ' + result.queue);
-//    return result.queue;
-//};
 
 webForms.getNewTicketNumber = function (data) {
     'use strict';
@@ -219,11 +205,8 @@ webForms.createTicket = function(queue, subject) {
 webForms.start = function () {
     'use strict';
 
-    var user  = webForms.getUser(),
-        //queueParam = getURLParameter('form'),
-        //queue = webForms.getQueue(queueParam);
+    var user  = webForms.user,
         form = getURLParameter('form');
-
 
     if (getURLParameter('demo') === 'true' || form === 'demo') {
         $('.demo').fadeIn();
@@ -232,24 +215,12 @@ webForms.start = function () {
     //console.log('webForms.start user = ' + user);
 
     // if, at start, some things are unknown, then we can't start 
-
-    if (user === undefined) {
-        $('#whoami, form').hide();
-        $('#who-are-you-error').fadeIn();
+    if (user === undefined || form === undefined || form === '') {
+        $('form, #form-description').hide();
+        $('h1').append('Problem');
+        $('#form-start-error').fadeIn();
     } else {
-
-        if (form === undefined) {
-            console.log('form is undefined');
-        }
-
         webForms.buildForm(form);    
-
-        
-        $('#uw-netid').text(user.UWNetID);
-        $('#user-name').val(user.Name);
-        $('#user-uwnetid').val(user.UWNetID);
-        $('#user-phone').val(user.PhoneNumbers.PhoneNumber);
-
     }
 }
 

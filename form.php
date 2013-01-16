@@ -25,9 +25,10 @@
             <strong>Note</strong> This is a tenative list of fields. The order and grouping may be changed as well.
         </div>
 
-        <div class="alert alert-error" id="who-are-you-error">
+        <div class="alert alert-error" id="form-start-error">
             <h4>There's a Problem</h4>
-            <p>We can't determine your UW NetID. You'll need one before completing this form.</p> 
+            <p id="uwnetid-problem">We can't determine your UW NetID. You'll need one before completing this form.</p> 
+            <p id="what-form-problem">We can't determine which form you're using.</p> 
         </div>
 
         <div class="alert alert-success" id="ticket-creation-success">
