@@ -47,50 +47,49 @@
             </div> -->
 
 
-<fieldset>
+    <fieldset>
 
-    <legend>Your Information</legend>
+        <legend>Your Information</legend>
             <div class="row">
-
                 <div class="span2">                
                     <label>Name</label>
-                <input class="span2" id="user-name" type="text" placeholder="">
-            </div>
-
-
+                    <input class="span2" id="user-name" type="text" placeholder="">
+                </div>
                 <div class="span2"> 
                     <label>UW NetID</label>
                     <input class="span2" id="user-uwnetid" type="text" placeholder="">
                 </div>
-
                 <div class="span2"> 
                     <label>Phone</label>
                     <input class="span2" id="user-phone" type="text" placeholder="">
                 </div>
-
             </div>
+            <!-- end .row -->
 
         <div class="alert alert-info demo">
             <strong>Note</strong><br/> We can also retrieve:
             <ul>
-             <li>Title </li>
-        <li>Mailstop</li>
-        <li>Email</li>
-        <li>More Phone Numbers</li>
-
+                <li>Title </li>
+                <li>Mailstop</li>
+                <li>Email</li>
+                <li>More Phone Numbers</li>
             </ul>
         </div>
-            <br/>
-        </fieldset>
+        <br/>
+    </fieldset>
 
+    <div id="form-fields">
 
-  <fieldset>
+    </div>
 
-    <legend>Server Request</legend>
+        <!-- <fieldset>
+
+            <legend>Server Request</legend>
             <div id="form-fields">
 
             </div>
-        </fieldset>
+        
+        </fieldset> -->
 
             <div class="form-actions">
                 <button type="button" class="btn-primary btn" id="submit-form">Submit</button>

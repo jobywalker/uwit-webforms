@@ -47,7 +47,7 @@ webForms.displayForm = function () {
         url = 'config/test.json';
     } 
     if (form === 'tsm') {
-        url = 'config/tsm.json';
+        url = 'config/tsm-v2.json';
     }
 
     $('.help-text-toggle').click(function(){
@@ -68,29 +68,38 @@ webForms.displayForm = function () {
                 html = '',
                 input = '';
             $('h1').append(json.formName);
-            $.each(json.formFields, function(k, v){
-                console.log('k = ' + k + ', v = ' + v);
-                if (v.inputType === 'textarea') {
-                    input = '<textarea rows="5"></textarea>';
-                } else if (v.inputType === 'select') {
-                    var options;
-                    $.each(v.selectOptions, function(i,option){
-                        options += '<option>' + option + '</option>';
-                    })
-                    input = '<select>' + options + '</select>';
-                }
-
-                else {
-                    input = '<input type="' + v.inputType +'" id="something" placeholder="' + v.placeholder + '"><span class="help-inline help-popover" title="' + v.name + '" data-content="' + v.helpText + '"> <i class="icon-question-sign"></i></span>';
-                }
-                html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
+            
+            $.each(json.formFieldsets, function(key, value){
+                //console.log('formFieldsets : key = ' + key + ', value = ' + value);
+                html += '<fieldset><legend>' + value.legend + '</legend><div>';
+                $.each(value.fields, function(k, v){
+                    //console.log('k = ' + k + ', v = ' + v);
+                    if (v.inputType === 'textarea') {
+                        input = '<textarea rows="5"></textarea>';
+                    } else if (v.inputType === 'select') {
+                        var options;
+                        $.each(v.selectOptions, function(i,option){
+                            options += '<option>' + option + '</option>';
+                        })
+                        input = '<select>' + options + '</select>';
+                    }
+    
+                    else {
+                        input = '<input type="' + v.inputType +'" id="something" placeholder="' + v.placeholder + '"><span  class="help-inline help-popover" title="' + v.name + '" data-content="' + v.helpText + '"> <i    class="icon-question-sign"></i></span>';
+                    }
+                    html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
+                });
+                html += '</div></fieldset>';
             });
+
+            // attach all the HTML
             $('#form-fields').append(html);
             $('.help-popover').popover({
                 trigger: 'hover',
                 placement: 'right'
             });
             $('#form-description').prepend(json.formDescription);
+        
         },
         error: function (jqXHR, textStatus, errorThrown) {
             ajaxConsoleLog('displayForm', textStatus, jqXHR);

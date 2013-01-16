@@ -1,0 +1,90 @@
+{
+    "formName": "TSM Backup Server Request",
+    "formDescription": "Using this form you can request a new <a href=\"http://www-142.ibm.com/software/products/us/en/tivostormana/>\">Tivoli Storage Manager</a> (TSM) Backup or change an existing one.",
+    "formHelpText": "Might be complicated enough to warrant a .load();",
+    "formFieldsets": {
+        "information": {
+            "legend": "Information",
+            "fields": {
+                "request": {
+                    "name": "Request",
+                    "inputType": "select",
+                    "selectOptions": [
+                        "New Node",
+                        "Existing"
+                    ],
+                    "helpText": "Not needed beside every field",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "comments": {
+                    "name": "Comments",
+                    "inputType": "textarea",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                }
+            }
+        },
+        "budget": {
+            "legend": "Budget",
+            "fields": {
+                "budget": {
+                    "name": "Budget",
+                    "inputType": "text",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "task": {
+                    "name": "Task",
+                    "inputType": "text",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "option": {
+                    "name": "Option",
+                    "inputType": "text",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                }
+            }
+        },
+        "estimates": {
+            "legend": "Estimates",
+            "fields": {
+                "backupSizeEstimate": {
+                    "name": "Estimated Backup Size",
+                    "inputType": "select",
+                    "selectOptions": [
+                        "Some",
+                        "A Lot"
+                    ],
+                    "helpText": "Not needed beside every field",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "filesEstimate": {
+                    "name": "Estimated Number of Files",
+                    "inputType": "select",
+                    "selectOptions": [
+                        "Some",
+                        "A Lot"
+                    ],
+                    "helpText": "Estimated number of files to be backed up.",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                },
+                "serverName": {
+                    "name": "Server Name",
+                    "inputType": "text",
+                    "helpText": "text",
+                    "placeholder": "Placeholder text",
+                    "required": true
+                }
+            }
+        }
+    }
+}

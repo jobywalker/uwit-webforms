@@ -25,6 +25,36 @@
             "placeholder": "Placeholder text",
             "required": true
         },
+        "task": {
+            "name": "Task",
+            "inputType": "text",
+            "helpText": "text",
+            "placeholder": "Placeholder text",
+            "required": true
+        },
+        "option": {
+            "name": "Option",
+            "inputType": "text",
+            "helpText": "text",
+            "placeholder": "Placeholder text",
+            "required": true
+        },
+        "backupSizeEstimate": {
+            "name": "Estimated Backup Size",
+            "inputType": "select",
+            "selectOptions" : ["New Node", "Existing"],
+            "helpText": "Not needed beside every field",
+            "placeholder": "Placeholder text",
+            "required": true
+        },
+        "filesEstimate": {
+            "name": "Estimated Number of Files",
+            "inputType": "select",
+            "selectOptions" : ["New Node", "Existing"],
+            "helpText": "Estimated number of files to be backed up.",
+            "placeholder": "Placeholder text",
+            "required": true
+        },
         "serverName": {
             "name": "Server Name",
             "inputType": "text",

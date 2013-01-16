@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.html">UW-IT Webforms <span style="font-weight:strong; color:#FFFFFF;">BETA</span></a>
+          <a class="brand" href="index.html">UW-IT Web Forms <span style="font-weight:strong; color:#FFFFFF;">BETA</span></a>
           <div class="nav-collapse collapse">
 
 
