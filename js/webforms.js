@@ -14,7 +14,7 @@ var webForms = {};
 
 webForms.getUser = function () { 
     var url = 'php/user-parcae.php',
-        testUrl = 'user.json',
+        testUrl = 'test-files/user.json',
         result = null;
     $.ajax({
         url: testUrl,
@@ -72,10 +72,10 @@ webForms.displayForm = function () {
                         input = '<textarea rows="5"></textarea>';
                     } else if (v.inputType === 'select') {
                         var options;
-                        $.each(v.selectOptions, function(i,option){
+                        $.each(v.selectOptions, function(i,option){  
                             options += '<option>' + option + '</option>';
                         })
-                        input = '<select>' + options + '</select>';
+                        input = '<select><option>Please Select</option>' + options + '</select>';
                     }
     
                     else {
@@ -83,7 +83,7 @@ webForms.displayForm = function () {
                     }
                     html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
                 });
-                html += '</div></fieldset>';
+                html += '</div></fieldset><br/>';
             });
 
             // attach all the HTML
@@ -161,7 +161,7 @@ webForms.createTicket = function(subject, message) {
 
     var queue = 'SSG::Test',
         ajaxUrl = 'https://rtdev.cac.washington.edu/Tools/Offline.html',
-        ajaxTestUrl = 'Offline.html',
+        ajaxTestUrl = 'test-files/Offline.html',
         rtDevURL = 'https://rtdev.cac.washington.edu/Ticket/Display.html?id=',
         ticket,
         ticketStringPost = {
