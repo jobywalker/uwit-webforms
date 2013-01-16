@@ -19,13 +19,6 @@ Technologies
 Plugins
 -------
 
-[jQuery Pulse Animation Plugin](http://jsoverson.github.com/jquery.pulse.js/)
-[jQuery Migrate](https://github.com/jquery/jquery-migrate/)
+* [jQuery Pulse Animation Plugin](http://jsoverson.github.com/jquery.pulse.js/)
+* [jQuery Migrate](https://github.com/jquery/jquery-migrate/)
 
-
-Other Notes
------------
-
-<https://wiki.cac.washington.edu/x/Q8Q6Aw>
-
-[Nebula/Exchange Form](https://www.washington.edu/itconnect/wares/nebula/forms/index.cgi)
