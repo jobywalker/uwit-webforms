@@ -19,7 +19,9 @@ module.exports = function(grunt) {
       dist: {
         //src: ['<banner:meta.banner>', '<file_strip_banner:js/*.js>'],
         //dest: 'dist/<%= pkg.name %>.js'
-        src: [  'js/vendor/jquery-1.9.0.min.js', 
+
+        src: [  '<banner:meta.banner>',
+                'js/vendor/jquery-1.9.0.min.js', 
                 'js/vendor/jquery-migrate-1.0.0.min.js', 
                 'js/vendor/jquery.pulse.min.js', 
                 'js/vendor/bootstrap.min.js', 

@@ -16,6 +16,7 @@
         "grunt-contrib-nodeunit": "~0.1.0"
     },
     "dependencies": {
+        "Bootstrap": "2.2.2",
         "jQuery": ">=1.9.x"
     }
 }
