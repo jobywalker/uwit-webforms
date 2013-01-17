@@ -175,4 +175,9 @@
     </div>
     <!-- end .container -->
 
-<?php include('includes/footer.php') ?>
+<?php 
+    
+    $scripts = array('js/form');
+    include('includes/footer.php') 
+
+?>
