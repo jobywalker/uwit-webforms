@@ -35,8 +35,6 @@ webForms.getUser = function () {
                 $('#user-uwnetid').val(user.UWNetID);
                 $('#user-phone').val(user.PhoneNumbers.PhoneNumber);
             }
-
-
         },
         error: function() {
             console.log('webForms.getUser error');
@@ -223,9 +221,3 @@ webForms.start = function () {
         webForms.buildForm(form);    
     }
 }
-
-$(function(){
-    'use strict';
-    // console.log('dom ready');
-    webForms.start();
-});
