@@ -22,11 +22,11 @@ webForms.getUser = function () {
         async: false,
         dataType: 'json',
         contentType: 'application/json',
-        success: function(data) {
+        success: function(data, textStatus, jqXHR) {
+            ajaxConsoleLog('getUser', textStatus, jqXHR);
             user = data.User;
             result = data;
-            console.log('webForms.getUser user is = ' + user.UWNetID)
-
+            // console.log('webForms.getUser user is = ' + user.UWNetID);
             if (user === undefined) {
                 return
             } else {
@@ -36,13 +36,19 @@ webForms.getUser = function () {
                 $('#user-phone').val(user.PhoneNumbers.PhoneNumber);
             }
         },
-        error: function() {
-            console.log('webForms.getUser error');
+        error: function(jqXHR, textStatus, errorThrown) {
+            ajaxConsoleLog('getUser', textStatus, jqXHR);
             $('#uw-netid').text('?');
             $('.form-actions').remove();
+            result = null;
         }
     });
-    return result.User;
+    if (result === null) {
+        result = "No UW NetID detected";
+        return result;
+    } else {
+        return result.User;
+    }    
 };
 
 webForms.user = webForms.getUser();
@@ -62,7 +68,7 @@ webForms.buildForm = function () {
         dataType: 'json',
         contentType: 'application/json',
         success: function (data, textStatus, jqXHR) {
-            // ajaxConsoleLog('displayForm', textStatus, jqXHR);
+            // ajaxConsoleLog('buildForm', textStatus, jqXHR);
             // console.log('data for displayForm = ' + data);
             //webForms.buildForm(data);
             var json = data,
@@ -115,15 +121,15 @@ webForms.buildForm = function () {
 
 // http://stackoverflow.com/questions/905298/jquery-storing-ajax-response-into-global-variable
 
-webForms.getNewTicketNumber = function (data) {
-    'use strict';
-    var text = data,
-        textSplit = text.split(' '),
-        wordTicketIndex = textSplit.indexOf('Ticket'),
-        ticketIndex = wordTicketIndex + 1;
-        ticket = textSplit[ticketIndex];
-    return ticket;
-};
+//webForms.getNewTicketNumber = function (data) {
+//    'use strict';
+//    var text = data,
+//        textSplit = text.split(' '),
+//        wordTicketIndex = textSplit.indexOf('Ticket'),
+//        ticketIndex = wordTicketIndex + 1;
+//        ticket = textSplit[ticketIndex];
+//    return ticket;
+//};
 
 // not in use yet:
 //webForms.getTicket = function (number) {
@@ -205,7 +211,6 @@ webForms.start = function () {
 
     var user  = webForms.user,
         form = getURLParameter('form');
-
     if (getURLParameter('demo') === 'true' || form === 'demo') {
         $('.demo').fadeIn();
     }
