@@ -54,7 +54,8 @@ body {
 fieldset {
   margin-bottom: 2em; }
 
-#authorizing-supervisor {
+#authorizing-supervisor,
+#change-permissions {
   display: none; }
 
 /* index page 

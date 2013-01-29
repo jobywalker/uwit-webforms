@@ -60,8 +60,9 @@
                     "name": "Estimated Backup Size",
                     "inputType": "select",
                     "selectOptions": [
-                        "Some",
-                        "A Lot"
+                        "Less than 100gb",
+                        "100 - 500gb",
+                        "> 500gb"
                     ],
                     "helpText": "Not needed beside every field",
                     "placeholder": "Placeholder text",
@@ -71,8 +72,10 @@
                     "name": "Estimated Number of Files",
                     "inputType": "select",
                     "selectOptions": [
-                        "Some",
-                        "A Lot"
+                        "50,000",
+                        "50,000-100,000",
+                        "100,000-250,000",
+                        "250,000 -1,000,000"
                     ],
                     "helpText": "Estimated number of files to be backed up.",
                     "placeholder": "Placeholder text",

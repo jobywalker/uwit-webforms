@@ -67,9 +67,9 @@
             <strong>Ticket Creation Problem</strong> Descriptive error message.
         </div>
 
-        <div class="alert alert-info">
+        <!--<div class="alert alert-info">
             <strong>Note</strong> This is a tenative list of fields. The order and grouping may be changed as well.
-        </div>
+        </div> -->
 
         <div class="alert alert-error" id="who-are-you-error">
             <h4>There's a Problem</h4>
@@ -129,19 +129,84 @@
                 <legend>Nebula Account For</legend>
                     <div class="controls controls-row">
                 <label>Name and UW NetID</label>
-                <input class="span3" type="text" placeholder="First and Last Name">
+                <input class="span3" type="text" placeholder="First and Last">
                 <input class="span2" type="text" placeholder="UW NetID">
                     </div>
             <label class="radio">
-            <input type="radio" name="authorizeRadios" id="authorizeRadios1" value="amSupervisor"> 
-                 New Account   
+            <input type="radio" name="accountActions" id="accountActions1" value="newAccount"> 
+                 New Account 
             </label>
             <label class="radio">
-            <input type="radio" name="authorizeRadios" id="authorizeRadios2" value="notSupervisor"> 
-            Change Account Permissions
+            <input type="radio" name="accountActions" id="accountActions2" value="changePermissions"> 
+            Change Account Permissions 
             </label>
-            <input type="radio" name="authorizeRadios" id="authorizeRadios2" value="notSupervisor"> 
-            Deactivate Account
+
+            <div id="change-permissions" class="well">
+                <div class="row">
+                    <div class="span3">
+                        <p><strong>Grant Permissions</strong><p>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="changePermissionsActions" id="" value="modelPerms"> 
+                    Model Permissions on this person:            
+                </label>
+                    <input class="span2" id="" style="margin-left:2.5em;" type="text" placeholder="UW NetID">
+
+                <label class="checkbox">
+                    <input type="checkbox" name="changePermissionsActions" id="" value="giveGroupPerms"> 
+                    Give Permissions to these groups:            
+                </label>
+                                <textarea style="margin-left:2.5em;"></textarea>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="changePermissionsActions" id="" value="giveFolderPerms"> 
+                    Give Permissions to these folders:            
+                </label>
+                                <textarea style="margin-left:2.5em;"></textarea>
+
+
+                <label class="checkbox">
+                    <input type="checkbox" name="changePermissionsActions" id="" value="giveAdminPriv"> 
+                    Give Admin Privileges to these computers:            
+                </label>
+                <textarea style="margin-left:2.5em;"></textarea>
+
+
+
+                </div>
+                <!-- end .span3 -->
+
+
+                <div class="span3">
+                         <p><strong>Remove Permissions</strong><p>
+                    
+                <label class="radio">
+                    <input type="checkbox" name="changePermissionsActions" id="" value="giveGroupPerms"> 
+                    Remove Permissions to these groups:            
+                </label>
+                    <textarea style="margin-left:2.5em;"></textarea>
+
+                <label class="radio">
+                    <input type="checkbox" name="changePermissionsActions" id="" value="giveFolderPerms"> 
+                    Remove Permissions to these folders:            
+                </label>
+                <textarea style="margin-left:2.5em;"></textarea>
+
+                    
+                </div>
+                <!-- end .span3 -->
+
+                </div>
+                <!-- end .row -->
+
+
+            </div>
+
+
+
+            <label>
+            <input type="radio" name="accountActions" id="accountActions3" value="deactivate"> 
+            Deactivate Account 
             </label>
         </fieldset>
 
@@ -173,10 +238,8 @@
 
                 <button type="button" class="btn-primary btn">Submit</button>
                 <button type="button" class="btn">Cancel</button>
-                
-                <hr/>
-            
-            <div id="whoami">
+                            
+            <!--<div id="whoami">
 
             <div class="alert alert-info">
                 <strong>Note</strong> This area may or may not be used.
@@ -193,6 +256,7 @@
             <!-- end #whoami -->
 
             </div>
+            <!-- end .form-actions -->
         </form>
 
 
@@ -207,17 +271,17 @@
   
         <div class="well">
             <h3>Description</h3>
-            <p>This form can be used to submit requests for changes to Nebula and Exchange accounts:</p>
-<ul>
-    <li>Account creation</li>
-    <li>Changes to account access</li>
-    <li>Account deletion</li>
-</ul>
-<p>When the form is submitted it will create a support ticket and 
-send you an email confirmation of your request. Please make note 
-of the ticket number, and refer to it in any future correspondence.</p>
-<p>Please allow one to two days to process your request.  If you have questions, 
-you can respond to your confirmation email or call (206) 221-5000. </p>
+            <p>This form can be used to submit requests for changes to Nebula account:</p>
+            <ul>
+                <li>Account creation</li>
+                <li>Changes to account access</li>
+                <li>Account deletion</li>
+            </ul>
+            <p>When the form is submitted it will create a support ticket and 
+            send you an email confirmation of your request. Please make note 
+            of the ticket number, and refer to it in any future correspondence.</p>
+            <p>Please allow one to two days to process your request.  If you have questions, 
+            you can respond to your confirmation email or call (206) 221-5000. </p>
         </div>
 
     </div>
