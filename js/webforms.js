@@ -1,5 +1,16 @@
 var webForms = {};
 
+webForms.pathname = location.pathname;
+
+webForms.path;
+
+if (webForms.pathname.indexOf('qunit') >= 0) {
+    console.log('we\'re using qunit');
+    webForms.path = '../';
+} else {
+    webForms.path = '';
+}
+
 //webForms.start = function () {
 //    console.log('starting')
 //    var requireUWNetID;
@@ -13,8 +24,8 @@ var webForms = {};
 //};
 
 webForms.getUser = function () { 
-    var url = 'php/user-parcae.php',
-        testUrl = 'test-files/user.json',
+    var url = webForms.path + 'php/user-parcae.php',
+        testUrl = webForms.path + 'test-files/user.json',
         result = null,
         user;
     $.ajax({
@@ -55,7 +66,7 @@ webForms.user = webForms.getUser();
 
 webForms.buildForm = function () {
     var form = getURLParameter('form'),
-        configUrl = 'config/' + form + '.json';
+        configUrl = webForms.path + 'config/' + form + '.json';
 
     $('.help-text-toggle').click(function(){
         console.log('.help-text-toggle')
@@ -68,7 +79,7 @@ webForms.buildForm = function () {
         dataType: 'json',
         contentType: 'application/json',
         success: function (data, textStatus, jqXHR) {
-            // ajaxConsoleLog('buildForm', textStatus, jqXHR);
+            ajaxConsoleLog('buildForm', textStatus, jqXHR);
             // console.log('data for displayForm = ' + data);
             //webForms.buildForm(data);
             var json = data,
@@ -102,16 +113,13 @@ webForms.buildForm = function () {
                 });
                 html += '</div></fieldset><br/>';
             });
-
             // attach all the HTML
             $('#form-fields').append(html);
-
             $('.help-popover').popover({
                 trigger: 'hover',
                 placement: 'right'
             });
             $('#form-description').prepend(json.formDescription);
-        
         },
         error: function (jqXHR, textStatus, errorThrown) {
             ajaxConsoleLog('displayForm', textStatus, jqXHR);
