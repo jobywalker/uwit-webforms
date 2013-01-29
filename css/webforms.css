@@ -51,6 +51,12 @@ body {
 #ticket-number {
   display: none; }
 
+fieldset {
+  margin-bottom: 2em; }
+
+#authorizing-supervisor {
+  display: none; }
+
 /* index page 
 ----------------------------------- */
 #index-page {
