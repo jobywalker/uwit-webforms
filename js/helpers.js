@@ -74,3 +74,10 @@ window.theTimeNow = function () {
     timeIs = hours + ':' + minutes; 
     return timeIs;
 };
+
+window.gitHubNotice = function () {
+    console.log(location.href)
+    if (location.href === 'http://jodytate.github.com/uwit-webforms/') {
+        $('#github-notice').fadeIn();
+    }
+};
