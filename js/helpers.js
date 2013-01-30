@@ -77,7 +77,7 @@ window.theTimeNow = function () {
 
 window.gitHubNotice = function () {
     console.log(location.href)
-    if (location.href === 'http://jodytate.github.com/uwit-webforms/') {
+    if (location.href === 'http://jodytate.github.com/uwit-webforms/index.html') {
         $('#github-notice').fadeIn();
     }
 };
