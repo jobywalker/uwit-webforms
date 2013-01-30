@@ -45,9 +45,11 @@
         
     <div class="container">
 
+
+
     <header>
-        <h1>Nebula Service Account Request</h1>
-        <p class="lead">Changes to Nebula and Exchange accounts <!--<span><i class="icon-info-sign"></i></span>--></p>
+        <h1>Exchange Account</h1>
+        <p class="lead">Request, Change or Deactivate an Exchange Account <!--<span><i class="icon-info-sign"></i></span>--></p>
     </header>
 
 
@@ -55,17 +57,17 @@
         
         <div class="span8">
         
-        <div class="well">
+        <!--<div class="well">
             <p id="form-description">Or more of a description here.</p>
-        </div>
+        </div>-->
 
         <div class="alert alert-error" id="ticket-creation-error">
             <strong>Ticket Creation Problem</strong> Descriptive error message.
         </div>
 
-        <div class="alert alert-info">
+        <!--<div class="alert alert-info">
             <strong>Note</strong> This is a tenative list of fields. The order and grouping may be changed as well.
-        </div>
+        </div> -->
 
         <div class="alert alert-error" id="who-are-you-error">
             <h4>There's a Problem</h4>
@@ -80,13 +82,149 @@
 
         <form>
 
+            <fieldset>
+                <legend>Requestor</legend>
             <div class="controls controls-row">
                 <label>Name and UW NetID</label>
-                <input class="span2" id="user-name" type="text" placeholder="First and Last Name">
-                <input class="span1" id="user-uwnetid" type="text" placeholder="UW NetID">
+                <input class="span3" id="user-name" type="text" placeholder="">
+                <input class="span2" id="user-uwnetid" type="text" placeholder="">
             </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>More Details</legend>
+            <label>RT Ticket </label>
+                <input type="text" placeholder="">
+                <span class="help-block">Please enter if you have a ticket number related to this request.</span>
+            <label>Permissions
+</label>
+            <label class="radio">
+            <input type="radio" name="authorizeRadios" id="authorizeRadios1" value="amSupervisor" checked>
+                 I am the supervisor for the individuals listed below and can authorize these actions.   
+            </label>
+            <label class="radio">
+            <input type="radio" name="authorizeRadios" id="authorizeRadios2" value="notSupervisor">
+            I am not the supervisor for the individuals listed below, but I have the authority to request these actions and access these resources.
+            </label>
+
+            <div id="authorizing-supervisor">
+            <label>Authorizing Supervisor</label>
+                <input type="text" class="span4" placeholder="Enter one or multiple UW NetIDs">
+                <span class="help-block">The supervisor(s) will be emailed regarding this request. You may enter multiple NetIDs, separated by commas.</span>
+            </div>
+
+        </fieldset>
+
+
+
+
+
+
   
             <div id="form-fields">
+
+            <fieldset>
+                <legend>Exchange Account For</legend>
+                    <div class="controls controls-row">
+                <label>Name and UW NetID</label>
+                <input class="span3" type="text" placeholder="First and Last">
+                <input class="span2" type="text" placeholder="UW NetID">
+                    </div>
+            <label class="radio">
+            <input type="radio" name="accountActions" id="accountActions1" value="newAccount"> 
+                 New Account 
+            </label>
+            <label class="radio">
+            <input type="radio" name="accountActions" id="accountActions2" value="changePermissions"> 
+            Change Account Permissions 
+            </label>
+
+
+
+
+
+            <label>
+            <input type="radio" name="accountActions" id="accountActions3" value="deactivate"> 
+            Deactivate Account 
+            </label>
+        </fieldset>
+
+        <fieldset id="budget-fieldset">
+            <legend>Budget</legend>
+                <label>Budget</label>
+                <input type="text" placeholder="">
+                <label>Task</label>
+                <input type="text" placeholder="">
+                <label>Option</label>
+                <input type="text" placeholder="">                
+                <label>Project</label>
+                <input type="text" placeholder="">                
+                <label>Budget Approver</label>
+                <input type="text" placeholder="UW NetID">
+            </fieldset>
+
+          <div id="change-permissions" class="">
+
+<fieldset>
+    <legend>Permissions</legend>
+
+
+                <div class="row">
+                    <div class="span3 grant-column">
+                    <p><strong>Grant Permissions</strong><p>
+
+                <label class="checkbox">
+                    Model Permissions on this person:            
+                </label>
+                    <input class="span2" id="" style="margin-left:2.5em;" type="text" placeholder="UW NetID">
+
+                <label class="checkbox">
+                    Give Permissions to these groups:            
+                </label>
+                                <textarea style="margin-left:2.5em;"></textarea>
+
+                <label class="checkbox">
+                    Give Permissions to these folders:            
+                </label>
+                                <textarea style="margin-left:2.5em;"></textarea>
+
+
+                <label class="checkbox">
+                    Give Admin Privileges to these computers:            
+                </label>
+                <textarea style="margin-left:2.5em;"></textarea>
+
+
+
+                </div>
+                <!-- end .span3 -->
+
+
+                <div class="span3 remove-column">
+                    <p><strong>Remove Permissions</strong><p>
+                    
+                <label class="radio">
+                    Remove Permissions to these groups:            
+                </label>
+                    <textarea style="margin-left:2.5em;"></textarea>
+
+                <label class="radio">
+                    Remove Permissions to these folders:            
+                </label>
+                <textarea style="margin-left:2.5em;"></textarea>
+
+                    
+                </div>
+                <!-- end .span3 -->
+
+                </div>
+                <!-- end .row -->
+
+</fieldset>
+
+            </div>
+            <!-- end permissions -->
+
 
             </div>
 
@@ -95,10 +233,8 @@
 
                 <button type="button" class="btn-primary btn">Submit</button>
                 <button type="button" class="btn">Cancel</button>
-                
-                <hr/>
-            
-            <div id="whoami">
+                            
+            <!--<div id="whoami">
 
             <div class="alert alert-info">
                 <strong>Note</strong> This area may or may not be used.
@@ -115,6 +251,7 @@
             <!-- end #whoami -->
 
             </div>
+            <!-- end .form-actions -->
         </form>
 
 
@@ -129,17 +266,17 @@
   
         <div class="well">
             <h3>Description</h3>
-            <p>This form can be used to submit requests for changes to Nebula and Exchange accounts:</p>
-<ul>
-    <li>Account creation</li>
-    <li>Changes to account access</li>
-    <li>Account deletion</li>
-</ul>
-<p>When the form is submitted it will create a support ticket and 
-send you an email confirmation of your request. Please make note 
-of the ticket number, and refer to it in any future correspondence.</p>
-<p>Please allow one to two days to process your request.  If you have questions, 
-you can respond to your confirmation email or call (206) 221-5000. </p>
+            <p>This form can be used to submit requests for changes to Nebula account:</p>
+            <ul>
+                <li>Account creation</li>
+                <li>Changes to account access</li>
+                <li>Account deletion</li>
+            </ul>
+            <p>When the form is submitted it will create a support ticket and 
+            send you an email confirmation of your request. Please make note 
+            of the ticket number, and refer to it in any future correspondence.</p>
+            <p>Please allow one to two days to process your request.  If you have questions, 
+            you can respond to your confirmation email or call (206) 221-5000. </p>
         </div>
 
     </div>

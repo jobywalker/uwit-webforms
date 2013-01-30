@@ -15,6 +15,7 @@
             <link rel="stylesheet" href="css/font-awesome-ie7.min.css">
         <![endif]-->
         <link rel="stylesheet" href="css/webforms.css">
+        <script data-main="js/webforms" src="js/vendor/require.js"></script>
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -45,13 +46,15 @@
         
     <div class="container">
 
-
+      <div class="alert alert-info" id="github-notice">
+          <strong><h4><i class="icon-github-alt"></i> You're on GitHub!</strong></h4> The web form service runs with limited functionality in this environment. 
+      </div>
 
 
 
     <header>
-        <h1>Nebula Service Account Request</h1>
-        <p class="lead">Request a Nebula Account <!--<span><i class="icon-info-sign"></i></span>--></p>
+        <h1>Nebula Service Account</h1>
+        <p class="lead">Request, Change or Deactivate a Nebula Account <!--<span><i class="icon-info-sign"></i></span>--></p>
     </header>
 
 
@@ -84,16 +87,127 @@
 
         <form>
 
-            <fieldset>
+            <!-- <fieldset>
                 <legend>Requestor</legend>
-            <div class="controls controls-row">
-                <label>Name and UW NetID</label>
-                <input class="span3" id="user-name" type="text" placeholder="">
-                <input class="span2" id="user-uwnetid" type="text" placeholder="">
-            </div>
+                <label>Name</label>
+                <input class="span3" type="text" placeholder="First and Last">
+                                <label>UW NetID</label>
+
+                <input class="span2" type="text" placeholder="UW NetID">
+        </fieldset>  -->
+
+        
+
+
+
+
+
+
+  
+            <div id="form-fields">
+
+            <fieldset>
+                <legend>Nebula Account For</legend>
+                <label>Name</label>
+                <input class="span3" type="text" placeholder="First and Last">
+                                <label>UW NetID</label>
+
+                <input class="span2" type="text" placeholder="UW NetID">
+
+            <label class="radio">
+            <input type="radio" name="accountActions" id="accountActions1" value="newAccount"> 
+                 New Account 
+            </label>
+            <label class="radio">
+            <input type="radio" name="accountActions" id="accountActions2" value="changePermissions"> 
+            Change Account Permissions 
+            </label>
+
+            <label>
+            <input type="radio" name="accountActions" id="accountActions3" value="deactivate"> 
+            Deactivate Account 
+            </label>
         </fieldset>
 
-        <fieldset>
+        <fieldset id="budget-fieldset">
+            <legend>Budget</legend>
+                <label>Budget</label>
+                <input type="text" placeholder="">
+                <label>Task</label>
+                <input type="text" placeholder="">
+                <label>Option</label>
+                <input type="text" placeholder="">                
+                <label>Project</label>
+                <input type="text" placeholder="">                
+                <label>Budget Approver</label>
+                <input type="text" placeholder="UW NetID">
+            </fieldset>
+
+          <div id="change-permissions" class="">
+
+    <fieldset>
+        <legend>Permissions</legend>
+                <div class="row">
+                <div class="span3 grant-column">
+                    <p><strong>Grant Permissions</strong><p>
+
+                <label class="checkbox">
+                    Model Permissions on this person:            
+                </label>
+                    <input class="span2" id="" style="margin-left:2.5em;" type="text" placeholder="UW NetID">
+
+                <label class="checkbox">
+                    Give Permissions to these groups:            
+                </label>
+                                <textarea style="margin-left:2.5em;"></textarea>
+
+                <label class="checkbox">
+                    Give Permissions to these folders:            
+                </label>
+                                <textarea style="margin-left:2.5em;"></textarea>
+
+
+                <label class="checkbox">
+                    Give Admin Privileges to these computers:            
+                </label>
+                <textarea style="margin-left:2.5em;"></textarea>
+
+
+
+                </div>
+                <!-- end .span3 -->
+
+
+                <div class="span3 remove-column">
+                    <p><strong>Remove Permissions</strong><p>
+                    
+                <label class="radio">
+                    Remove Permissions to these groups:            
+                </label>
+                    <textarea style="margin-left:2.5em;"></textarea>
+
+                <label class="radio">
+                    Remove Permissions to these folders:            
+                </label>
+                <textarea style="margin-left:2.5em;"></textarea>
+
+                    
+                </div>
+                <!-- end .span3 -->
+
+                </div>
+                <!-- end .row -->
+
+        </fieldset>
+
+            </div>
+            <!-- end permissions -->
+
+
+            </div>
+            <!-- end .row -->
+
+<fieldset>
             <legend>More Details</legend>
             <label>RT Ticket </label>
                 <input type="text" placeholder="">
@@ -117,121 +231,6 @@
 
         </fieldset>
 
-
-
-
-
-
-  
-            <div id="form-fields">
-
-            <fieldset>
-                <legend>Nebula Account For</legend>
-                    <div class="controls controls-row">
-                <label>Name and UW NetID</label>
-                <input class="span3" type="text" placeholder="First and Last">
-                <input class="span2" type="text" placeholder="UW NetID">
-                    </div>
-            <label class="radio">
-            <input type="radio" name="accountActions" id="accountActions1" value="newAccount"> 
-                 New Account 
-            </label>
-            <label class="radio">
-            <input type="radio" name="accountActions" id="accountActions2" value="changePermissions"> 
-            Change Account Permissions 
-            </label>
-
-            <div id="change-permissions" class="well">
-                <div class="row">
-                    <div class="span3">
-                        <p><strong>Grant Permissions</strong><p>
-
-                <label class="checkbox">
-                    <input type="checkbox" name="changePermissionsActions" id="" value="modelPerms"> 
-                    Model Permissions on this person:            
-                </label>
-                    <input class="span2" id="" style="margin-left:2.5em;" type="text" placeholder="UW NetID">
-
-                <label class="checkbox">
-                    <input type="checkbox" name="changePermissionsActions" id="" value="giveGroupPerms"> 
-                    Give Permissions to these groups:            
-                </label>
-                                <textarea style="margin-left:2.5em;"></textarea>
-
-                <label class="checkbox">
-                    <input type="checkbox" name="changePermissionsActions" id="" value="giveFolderPerms"> 
-                    Give Permissions to these folders:            
-                </label>
-                                <textarea style="margin-left:2.5em;"></textarea>
-
-
-                <label class="checkbox">
-                    <input type="checkbox" name="changePermissionsActions" id="" value="giveAdminPriv"> 
-                    Give Admin Privileges to these computers:            
-                </label>
-                <textarea style="margin-left:2.5em;"></textarea>
-
-
-
-                </div>
-                <!-- end .span3 -->
-
-
-                <div class="span3">
-                         <p><strong>Remove Permissions</strong><p>
-                    
-                <label class="radio">
-                    <input type="checkbox" name="changePermissionsActions" id="" value="giveGroupPerms"> 
-                    Remove Permissions to these groups:            
-                </label>
-                    <textarea style="margin-left:2.5em;"></textarea>
-
-                <label class="radio">
-                    <input type="checkbox" name="changePermissionsActions" id="" value="giveFolderPerms"> 
-                    Remove Permissions to these folders:            
-                </label>
-                <textarea style="margin-left:2.5em;"></textarea>
-
-                    
-                </div>
-                <!-- end .span3 -->
-
-                </div>
-                <!-- end .row -->
-
-
-            </div>
-
-
-
-            <label>
-            <input type="radio" name="accountActions" id="accountActions3" value="deactivate"> 
-            Deactivate Account 
-            </label>
-        </fieldset>
-
-        <fieldset id="budget">
-            <legend>Budget</legend>
-                <label>Budget</label>
-                <input type="text" placeholder="">
-                <label>Task</label>
-                <input type="text" placeholder="">
-                <label>Option</label>
-                <input type="text" placeholder="">                
-                <label>Project</label>
-                <input type="text" placeholder="">                
-                <label>Budget Approver</label>
-                <input type="text" placeholder="UW NetID">
-            </fieldset>
-
-
-
-<fieldset>
-    <legend>Budget</legend>
-
-</fieldset>
-
-            </div>
 
             <div class="form-actions">
 
@@ -293,13 +292,12 @@
     </div>
     <!-- end .container-fluid -->
 
-        <script src="js/vendor/jquery-1.9.0.min.js"></script>
+        <!--<script src="js/vendor/jquery-1.9.0.min.js"></script>
         <script src="js/vendor/jquery-migrate-1.0.0.min.js"></script>
-        <!--<script src="js/vendor/jquery.pulse.min.js"></script>-->
-        <script src="js/vendor/bootstrap.min.js"></script>
+        <!--<script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/helpers.js"></script>
         <script src="js/webforms.js"></script>
-        <script src="js/nebula.js"></script>
+        <script src="js/nebula.js"></script>-->
 
     </body>
 </html>
