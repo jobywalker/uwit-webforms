@@ -15,10 +15,12 @@ Technologies
 * [Modernizr](http://modernizr.com/)
 * [Grunt](http://gruntjs.com/)
 * [Sass](http://sass-lang.com/)
+* [Underscore](http://underscorejs.org/)
+* [Underscore.string](http://epeli.github.com/underscore.string/)
+
 
 Plugins
 -------
 
-* [jQuery Pulse Animation Plugin](http://jsoverson.github.com/jquery.pulse.js/)
 * [jQuery Migrate](https://github.com/jquery/jquery-migrate/)
 
