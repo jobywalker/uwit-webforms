@@ -1,9 +1,8 @@
-
-
+// namespacing
 var webForms = {};
 
 webForms.pathname = location.pathname;
-
+webForms.host = location.host;
 webForms.path;
 
 if (webForms.pathname.indexOf('qunit') >= 0) {
@@ -31,9 +30,9 @@ webForms.getUser = function () {
         result = null,
         user;
 
-    console.log('host is ' + location.host)
+    console.log('host is ' + webForms.host)
 
-    if (location.host !== 'rtdev.cac.washington.edu') {
+    if (webForms.host !== 'rtdev.cac.washington.edu') {
         url = testUrl;
     }
 
@@ -114,16 +113,15 @@ webForms.buildForm = function () {
                             options += '<option>' + option + '</option>';
                         })
                         input = '<select><option>Please Select</option>' + options + '</select>';
-                    }
-    
-                    else {
-                        input = '<input type="' + v.inputType +'" id="something" placeholder="' + v.placeholder + '"><span  class="help-inline help-popover" title="' + v.name + '" data-content="' + v.helpText + '"> <i    class="icon-question-sign"></i></span>';
+                    } else {
+                        input = '<input type="' + v.inputType +'" id="something" placeholder="' + v.placeholder + '"><span  class="help-inline help-popover" title="' + v.name + '" data-content="' + v.popOverText + '"> <i class="icon-question-sign"></i></span>' + 
+                            '<span class="help-block">' + v.helpText + '</span>';
                     }
                     html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
                 });
                 html += '</div></fieldset><br/>';
             });
-            // attach all the HTML
+            // append all the HTML as one big lump for effiency; yes, this is more efficient
             $('#form-fields').append(html);
             $('.help-popover').popover({
                 trigger: 'hover',
@@ -227,6 +225,10 @@ webForms.createTicket = function(queue, subject) {
 webForms.start = function () {
     'use strict';
 
+    if (webForms.host === 'rtdev.cac.washington.edu'){
+        $('#dev-mode-notice').fadeIn();
+    }
+
     var user  = webForms.user,
         form = getURLParameter('form');
     if (getURLParameter('demo') === 'true' || form === 'demo') {
@@ -243,6 +245,7 @@ webForms.start = function () {
     } else {
         webForms.buildForm(form);    
     }
+
 }
 
 $(function () {

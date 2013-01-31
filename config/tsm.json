@@ -1,11 +1,11 @@
 {
     "formName": "TSM Backup Server Request",
     "formQueue" : "SSG::Test",
-    "formDescription": "Using this form you can request a new <a href=\"http://www-142.ibm.com/software/products/us/en/tivostormana/>\">Tivoli Storage Manager</a> (TSM) Backup or change an existing one.",
+    "formDescription": "Using this form you can request a new TSM Backup or change an existing one.",
     "formHelpText": "Might be complicated enough to warrant a .load();",
     "formFieldsets": {
         "information": {
-            "legend": "Information",
+            "legend": "TSM Request",
             "fields": {
                 "request": {
                     "name": "Request",
@@ -33,21 +33,21 @@
                 "budget": {
                     "name": "Budget Number",
                     "inputType": "text",
-                    "helpText": "text",
+                    "helpText": "",
                     "placeholder": "Placeholder text",
                     "required": true
                 },
                 "task": {
                     "name": "Task Number",
                     "inputType": "text",
-                    "helpText": "text",
+                    "helpText": "",
                     "placeholder": "Placeholder text",
                     "required": true
                 },
                 "option": {
                     "name": "Option Number",
                     "inputType": "text",
-                    "helpText": "text",
+                    "helpText": "",
                     "placeholder": "Placeholder text",
                     "required": true
                 }
@@ -84,7 +84,8 @@
                 "serverName": {
                     "name": "Server Name",
                     "inputType": "text",
-                    "helpText": "Supply a Fully-Qualified Domain Name.",
+                    "popOverText": "Supply a Fully-Qualified Domain Name.",
+                    "helpText": "Your TSM node name will be based on your FQDN.",
                     "placeholder": "FQDN",
                     "required": true
                 }

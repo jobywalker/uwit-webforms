@@ -54,6 +54,7 @@ body {
 fieldset {
   margin-bottom: 2em; }
 
+#dev-mode-notice,
 #form-start-error,
 #github-notice,
 #budget-fieldset,
