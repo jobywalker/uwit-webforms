@@ -236,6 +236,10 @@ webForms.start = function () {
         $('#dev-mode-notice').fadeIn().append('<code><span style="font-weight:normal; color:#777777;">location.host: ' + host + '</span></code>');
     }
 
+    if (_(host).includes('github') === true) {
+        $('#github-notice').fadeIn();
+    }
+
     var user  = webForms.user,
         form = getURLParameter('form');
     if (getURLParameter('demo') === 'true' || form === 'demo') {
