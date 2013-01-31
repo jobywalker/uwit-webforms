@@ -1,4 +1,4 @@
-$('#qunit-fixture').load('../form.php?form=demo #container');
+$('#qunit-fixture').load('../form.php #container');
 
 
 test('webForms.getUser test', function() {

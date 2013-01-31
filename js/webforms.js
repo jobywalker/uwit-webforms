@@ -30,8 +30,15 @@ webForms.getUser = function () {
         testUrl = webForms.path + 'test-files/user.json',
         result = null,
         user;
+
+    console.log('host is ' + location.host)
+
+    if (location.host !== 'rtdev.cac.washington.edu') {
+        url = testUrl;
+    }
+
     $.ajax({
-        url: testUrl,
+        url: url,
         async: false,
         dataType: 'json',
         contentType: 'application/json',
@@ -67,6 +74,7 @@ webForms.getUser = function () {
 webForms.user = webForms.getUser();
 
 webForms.buildForm = function () {
+    console.log('running buildForm')
     var form = getURLParameter('form'),
         configUrl = webForms.path + 'config/' + form + '.json';
 
@@ -225,7 +233,7 @@ webForms.start = function () {
         $('.demo').fadeIn();
     }
 
-    //console.log('webForms.start user = ' + user);
+    console.log('user is ' + user)
 
     // if, at start, some things are unknown, then we can't start 
     if (user === undefined || form === undefined || form === '') {
@@ -236,3 +244,7 @@ webForms.start = function () {
         webForms.buildForm(form);    
     }
 }
+
+$(function () {
+    webForms.start();
+});

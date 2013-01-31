@@ -12,12 +12,17 @@ $(function () {
         var changePermissions = $('#change-permissions');
 
         if (accountAction === 'newAccount') {
+
+            $('#computers-remove').hide();
+
             changePermissions.hide();
             newAccount.fadeIn();
             $('#change-permissions .remove-column').hide();
         } 
 
         if (accountAction === 'changePermissions') {
+            $('#computers-remove').hide();
+
             newAccount.hide();
             changePermissions.fadeIn();
             $('#change-permissions .remove-column').show();
@@ -26,7 +31,11 @@ $(function () {
         if (accountAction === 'deactivate') {
             newAccount.hide();
             changePermissions.hide();
+            $('#computers-remove').fadeIn();
         }
+
+
+    
 
 
     });

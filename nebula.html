@@ -52,8 +52,8 @@
 
 
     <header>
-        <h1>Nebula Service Account</h1>
-        <p class="lead">Request, Change or Deactivate a Nebula Account <!--<span><i class="icon-info-sign"></i></span>--></p>
+        <h1>Nebula and Exchange Accounts</h1>
+        <p class="lead">Create, Change or Disable a Nebula or Exchange Account <!--<span><i class="icon-info-sign"></i></span>--></p>
     </header>
 
 
@@ -106,7 +106,7 @@
             <div id="form-fields">
 
             <fieldset>
-                <legend>Nebula Account For</legend>
+                <legend>Account</legend>
                 <label>Name</label>
                 <input class="span3" type="text" placeholder="First and Last">
                                 <label>UW NetID</label>
@@ -115,21 +115,41 @@
 
             <label class="radio">
             <input type="radio" name="accountActions" id="accountActions1" value="newAccount"> 
-                 New Account 
+                Create 
             </label>
             <label class="radio">
             <input type="radio" name="accountActions" id="accountActions2" value="changePermissions"> 
-            Change Account Permissions 
+                Change 
             </label>
 
-            <label>
+            <label class="radio">
+            
             <input type="radio" name="accountActions" id="accountActions3" value="deactivate"> 
-            Deactivate Account 
+                Disable  
             </label>
+<div id="computers-remove">
+
+            <label>If you have computers you'd like removed from billing, list those below.</label>
+            <textarea></textarea>
+
+        </div>
         </fieldset>
+       <fieldset id="budget-fieldset">
+            <legend>Budget for Nebula</legend>
+                <label>Budget</label>
+                <input type="text" placeholder="Optional">
+                <label>Task</label>
+                <input type="text" placeholder="Optional">
+                <label>Option</label>
+                <input type="text" placeholder="Optional">                
+                <label>Project</label>
+                <input type="text" placeholder="Optional">                
+                <label>Budget Approver</label>
+                <input type="text" placeholder="UW NetID">
+            </fieldset>
 
         <fieldset id="budget-fieldset">
-            <legend>Budget</legend>
+            <legend>Budget for Exchange</legend>
                 <label>Budget</label>
                 <input type="text" placeholder="">
                 <label>Task</label>
@@ -146,6 +166,7 @@
 
     <fieldset>
         <legend>Permissions</legend>
+        <p>Optional blah</p>
                 <div class="row">
                 <div class="span3 grant-column">
                     <p><strong>Grant Permissions</strong><p>
@@ -153,15 +174,10 @@
                 <label class="checkbox">
                     Model Permissions on this person:            
                 </label>
-                    <input class="span2" id="" style="margin-left:2.5em;" type="text" placeholder="UW NetID">
+                    <input class="span2" id="" style="margin-left:2.5em;" type="text" placeholder="UW NetID - Optional">
 
                 <label class="checkbox">
                     Give Permissions to these groups:            
-                </label>
-                                <textarea style="margin-left:2.5em;"></textarea>
-
-                <label class="checkbox">
-                    Give Permissions to these folders:            
                 </label>
                                 <textarea style="margin-left:2.5em;"></textarea>
 
@@ -211,7 +227,7 @@
             <label>RT Ticket </label>
                 <input type="text" placeholder="">
                 <span class="help-block">Please enter if you have a ticket number related to this request.</span>
-            <label>Permissions
+            <label>Authorization
 </label>
             <label class="radio">
             <input type="radio" name="authorizeRadios" id="authorizeRadios1" value="amSupervisor" checked>
@@ -230,28 +246,25 @@
 
         </fieldset>
 
+<fieldset>
+
+<legend>
+Comments
+</legend>
+
+<textarea class="span6">
+</textarea>
+
+</fieldet>
 
             <div class="form-actions">
 
 
                 <button type="button" class="btn-primary btn">Submit</button>
                 <button type="button" class="btn">Cancel</button>
-                            
-            <!--<div id="whoami">
+                                           
 
-            <div class="alert alert-info">
-                <strong>Note</strong> This area may or may not be used.
-            </div>
-            <address>
-                <strong><span class="name"></span></strong><br/>
-                <span class="title"></span><br/>
-                <span class="mailstop"></span><br/>
-                <span class="phone"></span><br/>
-                <span class="email"></span>
-            </address>
-            
-            </div>
-            <!-- end #whoami -->
+
 
             </div>
             <!-- end .form-actions -->
@@ -259,8 +272,7 @@
 
 
         <p id="ticket-number"></p>
-  
-        <!--<p>Run <a href="http://pivotal.github.com/jasmine/">Jasmine</a> suite of <a href="js/tests/">tests</a></p> -->
+
   
     </div>
     <!-- end .span8 -->
@@ -268,7 +280,7 @@
     <div class="span4">
   
         <div class="well">
-            <h3>Help</h3>
+            <h4>Note</h4>
             <p>This form can be used to submit requests for changes to Nebula account:</p>
             <ul>
                 <li>Account creation</li>

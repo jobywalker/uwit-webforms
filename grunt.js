@@ -23,7 +23,6 @@ module.exports = function(grunt) {
         src: [  '<banner:meta.banner>',
                 'js/vendor/jquery-1.9.0.min.js', 
                 'js/vendor/jquery-migrate-1.0.0.min.js', 
-                'js/vendor/jquery.pulse.min.js', 
                 'js/vendor/bootstrap.min.js', 
                 'js/helpers.js', 
                 'js/webforms.js'],

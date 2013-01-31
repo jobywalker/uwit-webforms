@@ -87,10 +87,12 @@ fieldset {
     margin-bottom: 2em;
 }
 
+#form-start-error,
 #github-notice,
 #budget-fieldset,
 #authorizing-supervisor,
-#change-permissions {
+#change-permissions,
+#computers-remove {
     display: none;
 }
 
