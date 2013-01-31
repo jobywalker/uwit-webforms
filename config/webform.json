@@ -1,5 +1,7 @@
 {
-    "formName": "Request a Web Form",  
+    "formType" : "RT",
+    "formName": "Request a Web Form", 
+    "formQueue" : "SSG::Test", 
     "formDescription" : "Request a new form from the UW-IT Webform Service.",
     "formHelpText" : "Placeholder",
     "formOwner" : "jtate",
@@ -20,7 +22,7 @@
             }
         }
     },
-    "formAddendum" : "We've automatically collected who you are via your login credentials.",
+    "formAddendum" : "We've collected your information via your login credentials.",
     "formThanks" : {
         "Message" : "Thanks for your message. We will reply as soon as possible."
     }
