@@ -76,7 +76,7 @@ window.theTimeNow = function () {
 };
 
 window.gitHubNotice = function () {
-    console.log(location.host)
+    // console.log(location.host)
     if (location.host === 'jodytate.github.com') {
         $('#github-notice').fadeIn();
     }

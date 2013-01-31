@@ -1,28 +1,27 @@
 {
-    "formName": "Request a Webform",  
+    "formName": "Request a Web Form",  
     "formDescription" : "Request a new form from the UW-IT Webform Service.",
     "formHelpText" : "Placeholder",
     "formOwner" : "jtate",
     "formOwnerEmail" : "webforms@uw.edu",
-    "formFields": {
-        "subject": {
-            "name": "Form",
-            "inputType": "text",
-            "helpText": "text",
-            "placeholder": "",
-            "value" : "SSG::Test Ticket",
-            "required": true
-        },
-        "message": {
-            "name": "More",
-            "inputType": "textarea",
-            "helpText": "text",
-            "placeholder": null,
-            "value" : null,
-            "required": true
+    "formShowRequestor" : "false",
+    "formFieldsets": {
+        "information": {
+            "legend": "Tell Us More",
+            "fields": {
+                "comments": {
+                    "name": "Describe What You'd Like",
+                    "inputType": "textarea",
+                    "helpText": "Tell us the type of form you need.",
+                    "placeholder": "",
+                    "width" : "4",
+                    "required": true
+                }
+            }
         }
     },
+    "formAddendum" : "We've automatically collected who you are via your login credentials.",
     "formThanks" : {
-        "Message" : "Thansk for your message. We will reply as soon as possible."
+        "Message" : "Thanks for your message. We will reply as soon as possible."
     }
 }

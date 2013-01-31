@@ -85,6 +85,12 @@ webForms.buildForm = function () {
         $('#help-text').fadeToggle();
     });
 
+    $('#form-cancel').click(function() {
+        $('#form-fields input, #form-fields textarea, #form-fields select').each(function() {
+            $(this).val('');
+        });
+    });
+
     //console.log('running displayForm');
     $.ajax({
         url: configUrl,
@@ -102,6 +108,14 @@ webForms.buildForm = function () {
             $('#submit-form').click(function() {
                 webForms.createTicket(json.formQueue);
             });
+
+            if (json.formShowRequestor === 'false') {
+                $('#requestor-fieldset').hide();
+            }
+
+            if (json.formAddendum !== undefined) {
+                $('#form-addendum').show().append('<span class="label">Note</span> ' + json.formAddendum);
+            }
             
             $.each(json.formFieldsets, function(key, value){
                 //console.log('formFieldsets : key = ' + key + ', value = ' + value);
@@ -109,7 +123,8 @@ webForms.buildForm = function () {
                 $.each(value.fields, function(k, v){
                     //console.log('k = ' + k + ', v = ' + v);
                     if (v.inputType === 'textarea') {
-                        input = '<textarea rows="5"></textarea>';
+                        input = '<textarea rows="5"></textarea>' + 
+                        '<span class="help-block">' + v.helpText + '</span>';
                     } else if (v.inputType === 'select') {
                         var options;
                         $.each(v.selectOptions, function(i,option){  
