@@ -114,7 +114,7 @@ webForms.buildForm = function () {
             }
 
             if (json.formAddendum !== undefined) {
-                $('#form-addendum').show().append('<span class="label">Note</span> ' + json.formAddendum);
+                $('#form-addendum').show().append('<i class="icon-user"> </span> ' + json.formAddendum);
             }
             
             $.each(json.formFieldsets, function(key, value){
@@ -123,16 +123,16 @@ webForms.buildForm = function () {
                 $.each(value.fields, function(k, v){
                     //console.log('k = ' + k + ', v = ' + v);
                     if (v.inputType === 'textarea') {
-                        input = '<textarea rows="5"></textarea>' + 
+                        input = '<textarea rows="5" id="' + k + '"></textarea>' + 
                         '<span class="help-block">' + v.helpText + '</span>';
                     } else if (v.inputType === 'select') {
                         var options;
                         $.each(v.selectOptions, function(i,option){  
                             options += '<option>' + option + '</option>';
                         })
-                        input = '<select><option>Please Select</option>' + options + '</select>';
+                        input = '<select id="' + k + '"><option>Please Select</option>' + options + '</select>';
                     } else {
-                        input = '<input type="' + v.inputType +'" id="something" placeholder="' + v.placeholder + '"><span  class="help-inline help-popover" title="' + v.name + '" data-content="' + v.popOverText + '"> <i class="icon-question-sign"></i></span>' + 
+                        input = '<input type="' + v.inputType +'" id="' + k + '" placeholder="' + v.placeholder + '"><span  class="help-inline help-popover" title="' + v.name + '" data-content="' + v.popOverText + '"> <i class="icon-question-sign"></i></span>' + 
                             '<span class="help-block">' + v.helpText + '</span>';
                     }
                     html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
@@ -189,10 +189,12 @@ webForms.createTicket = function(queue, subject) {
     'use strict';
     //console.log('run createTicket')
 
-    var ajaxUrl = 'https://rtdev.cac.washington.edu/Tools/Offline.html',
+    var url,
+        ajaxUrl = 'https://rtdev.cac.washington.edu/Tools/Offline.html',
         ajaxTestUrl = 'test-files/Offline.html',
         rtDevURL = 'https://rtdev.cac.washington.edu/Ticket/Display.html?id=',
         ticket,
+        message,
         ticketStringPost = {
             UpdateTickets : 'Upload',
             resultsonly : "on",
@@ -200,9 +202,15 @@ webForms.createTicket = function(queue, subject) {
             string : '===Create-Ticket: ticket1\nQueue: ' + queue + '\nSubject: ' + subject + ', ' + theTimeNow() + '\nContent: ' + message + '\nENDOFCONTENT'
         };
 
+    if (webForms.host === 'rtdev.cac.washington.edu') {
+        url = ajaxUrl;
+    } else {
+        url = ajaxTestUrl;
+    }
+
     $.ajax({
         //type: 'POST',
-        url: ajaxTestUrl,
+        url: url,
         //url : 'Offline.html',
         //contentType: "application/x-www-form-urlencoded",
         data: ticketStringPost,
