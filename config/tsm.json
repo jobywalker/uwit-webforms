@@ -84,8 +84,8 @@
                 "serverName": {
                     "name": "Server Name",
                     "inputType": "text",
-                    "helpText": "text",
-                    "placeholder": "Placeholder text",
+                    "helpText": "Supply a Fully-Qualified Domain Name.",
+                    "placeholder": "FQDN",
                     "required": true
                 }
             }
