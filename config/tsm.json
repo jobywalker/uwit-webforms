@@ -22,7 +22,8 @@
                     "name": "Comments",
                     "inputType": "textarea",
                     "helpText": "text",
-                    "placeholder": "Placeholder text",
+                    "placeholder": "",
+                    "width" : "4",
                     "required": true
                 }
             }
@@ -34,21 +35,21 @@
                     "name": "Budget Number",
                     "inputType": "text",
                     "helpText": "",
-                    "placeholder": "Placeholder text",
+                    "placeholder": "Required",
                     "required": true
                 },
                 "task": {
                     "name": "Task Number",
                     "inputType": "text",
                     "helpText": "",
-                    "placeholder": "Placeholder text",
+                    "placeholder": "",
                     "required": true
                 },
                 "option": {
                     "name": "Option Number",
                     "inputType": "text",
                     "helpText": "",
-                    "placeholder": "Placeholder text",
+                    "placeholder": "",
                     "required": true
                 }
             }
