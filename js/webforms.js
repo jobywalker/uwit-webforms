@@ -1,3 +1,6 @@
+// gets the underscore string stuff working
+_.mixin(_.string.exports());
+
 // namespacing
 var webForms = {};
 
@@ -225,7 +228,11 @@ webForms.createTicket = function(queue, subject) {
 webForms.start = function () {
     'use strict';
 
-    if (webForms.host === 'rtdev.cac.washington.edu'){
+        var user  = webForms.user,
+            host = webForms.host,
+            form = getURLParameter('form');
+
+    if (_(host).startsWith('rtdev') === true || _(host).endsWith('local') === true) {
         $('#dev-mode-notice').fadeIn();
     }
 
