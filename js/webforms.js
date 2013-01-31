@@ -228,12 +228,12 @@ webForms.createTicket = function(queue, subject) {
 webForms.start = function () {
     'use strict';
 
-        var user  = webForms.user,
-            host = webForms.host,
-            form = getURLParameter('form');
+    var user  = webForms.user,
+        host = webForms.host,
+        form = getURLParameter('form');
 
     if (_(host).startsWith('rtdev') === true || _(host).endsWith('local') === true) {
-        $('#dev-mode-notice').fadeIn();
+        $('#dev-mode-notice').fadeIn().append('<code><span style="font-weight:normal; color:#777777;">location.host: ' + host + '</span></code>');
     }
 
     var user  = webForms.user,
