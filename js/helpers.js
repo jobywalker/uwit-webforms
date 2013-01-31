@@ -76,8 +76,8 @@ window.theTimeNow = function () {
 };
 
 window.gitHubNotice = function () {
-    console.log(location.href)
-    if (location.host === 'http://jodytate.github.com/') {
+    console.log(location.host)
+    if (location.host === 'jodytate.github.com') {
         $('#github-notice').fadeIn();
     }
 };
