@@ -147,6 +147,7 @@ webForms.buildForm = function () {
                 placement: 'right'
             });
             $('#form-description').prepend(json.formDescription);
+            $('#loading-notice').hide();
         },
         error: function (jqXHR, textStatus, errorThrown) {
             ajaxConsoleLog('displayForm', textStatus, jqXHR);
