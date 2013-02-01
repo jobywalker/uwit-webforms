@@ -133,7 +133,8 @@ webForms.buildForm = function () {
                         })
                         input = '<select id="' + k + '"><option>Please Select</option>' + options + '</select>';
                     } else {
-                        input = '<input type="' + v.inputType +'" id="' + k + '" placeholder="' + v.placeholder + '"><span  class="help-inline help-popover" title="' + v.name + '" data-content="' + v.popOverText + '"> <i class="icon-question-sign"></i></span>' + 
+                        input = '<input type="' + v.inputType +'" id="' + k + '" placeholder="' + v.placeholder + '">' + 
+                            '<span  class="help-inline help-popover" title="' + v.name + '" data-content="' + v.popOverText + '"> <i class="icon-question-sign"></i></span>' + 
                             '<span class="help-block">' + v.helpText + '</span>';
                     }
                     html += '<label for="input' + v.id + '">' + v.name + '</label>' + input;
@@ -151,6 +152,7 @@ webForms.buildForm = function () {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             ajaxConsoleLog('displayForm', textStatus, jqXHR);
+            $('#major-problem-notice').show().append('<br/><pre>' + textStatus.toUpperCase() + ' for buildForm();<br/>jqXHR.statusText = ' + jqXHR.statusText + '<br/>textStatus = ' + textStatus + '</pre>');
         }
     });
 };

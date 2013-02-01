@@ -54,6 +54,7 @@ body {
 fieldset {
   margin-bottom: 2em; }
 
+#major-problem-notice,
 #loading-notice,
 #help-text-toggle,
 #requestor-fieldset,
