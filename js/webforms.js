@@ -107,7 +107,7 @@ webForms.buildForm = function () {
             $('h1').append(json.formName);
             $('#submit-form').click(function() {
                 webForms.createTicket(json.formQueue);
-                $(this).attr('disabled', 'disabled').val('Submitting ...');
+                $(this).attr('disabled', 'disabled').html('<i class="icon-spinner icon-spin"></i> Submitting ...');
             });
 
             if (json.formShowRequestor === 'false') {
